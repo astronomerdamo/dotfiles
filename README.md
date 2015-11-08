@@ -8,13 +8,13 @@
 
 ## Emacs
 
-* `$ ln -s ~/Developer/dotfiles/.emacs ~/.emacs`
+* `$ ln -s ~/<path>/dotfiles/.emacs ~/.emacs`
 
 ## Oh My Zsh
 
 * `$ ln -s ~/<path>/dotfiles/.zshrc ~/.zshrc`
-* `$ ln -s ~/Developer/dotfiles/.oh-my-zsh/custom/themes ~/.oh-my-zsh/custom/themes`
-* `$ ln -s ~/Developer/dotfiles/.oh-my-zsh/custom/custom_alias.zsh ~/.oh-my-zsh/custom/cusrom_alias.zsh`
+* `$ ln -s ~/<path>/dotfiles/.oh-my-zsh/custom/themes ~/.oh-my-zsh/custom/themes`
+* `$ ln -s ~/<path>/dotfiles/.oh-my-zsh/custom/custom_alias.zsh ~/.oh-my-zsh/custom/cusrom_alias.zsh`
 
 ## Git
 
