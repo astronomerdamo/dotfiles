@@ -1,0 +1,15 @@
+[user]
+	name = Damien Robertson
+	email = damien.robertson@shopify.com
+[credential]
+	helper = osxkeychain
+[color]
+	ui = auto
+[core]
+	editor = /usr/local/bin/vim
+[push]
+	default = simple
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
