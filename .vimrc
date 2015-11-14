@@ -101,7 +101,7 @@ set ruler
 " allow mouse movement and selection
 set mouse=a
 
-" turn line number on with relative line nu,bers from cursor
+" turn line number on with relative line numbers from cursor
 set number
 set relativenumber
 
@@ -151,5 +151,12 @@ nnoremap <leader>w :set list!<CR>
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " set the colorscheme
-set background=dark
-colorscheme solarized
+"colorscheme solarized
+"set background=dark
+if has('gui_running')
+  colorscheme solarized
+  set background=dark
+else
+  colorscheme monokai
+  "set background=dark
+endif
