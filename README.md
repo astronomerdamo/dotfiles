@@ -8,11 +8,15 @@
 
 ## NeoVim
 
-* `$ ln -s ~/<path>/dotfiles/.config/nvim ~/.config/nvim`
+* `$ ln -s ~/<path>/dctfilesk.config/nvim ~/.config/nvim`
 
 ## Emacs
 
 * `$ ln -s ~/<path>/dotfiles/.emacs ~/.emacs`
+
+## Spacemacs
+
+* `$ ln -s ~/<path>/dotfiles/.spacemacs ~/.spacemacs`
 
 ## Oh My Zsh
 

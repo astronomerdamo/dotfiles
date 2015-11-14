@@ -60,6 +60,6 @@ set listchars+=eol:$,space:.
 nnoremap <leader>w :set list!<CR>
 
 " set colorscheme
-colorscheme zenburn
+colorscheme monokai
 "set background=dark
 
