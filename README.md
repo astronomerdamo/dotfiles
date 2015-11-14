@@ -6,6 +6,10 @@
 * `$ ln -s ~/<path>/dotfiles/.vim ~/.vim`
 * `$ vim +PluginInstall +qall`
 
+## NeoVim
+
+* `$ ln -s ~/<path>/dotfiles/.config/nvim ~/.config/nvim`
+
 ## Emacs
 
 * `$ ln -s ~/<path>/dotfiles/.emacs ~/.emacs`
