@@ -1,6 +1,10 @@
 " define plugins
 call plug#begin()
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 call plug#end()
 
 " turn on syntax
@@ -30,10 +34,10 @@ set splitbelow
 set splitright
 
 " remap split navigations (up, down, left, right)
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+"nnoremap <C-J> <C-W><C-J>
+"nnoremap <C-K> <C-W><C-K>
+"nnoremap <C-L> <C-W><C-L>
+"nnoremap <C-H> <C-W><C-H>
 
 " remap page navigation to be consistent with j/k
 nnoremap <S-K> <S-H>
@@ -53,6 +57,12 @@ nnoremap <leader>ls :ls<CR>
 " window closures using leader
 nnoremap <leader>c <C-W>c
 nnoremap <leader>o <C-W>o
+
+" remove searched word highlighting
+nnoremap <leader>noh :noh<CR>
+
+" cancel terminal mode with ,escape
+"tnoremap ,<ESC> <C-\><C-n>
 
 " set list characters for viewing whitespace
 " and toggle on/off with leader-w
