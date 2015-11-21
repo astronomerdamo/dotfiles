@@ -1,72 +1,40 @@
-" Use Vim defaults (much better!)
+" use vim defaults
 set nocompatible
 
-" Turn syntax on
-syntax on
+" define plugins
+call plug#begin('~/.vim/plugged')
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" themes
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'altercation/vim-colors-solarized'
+Plug 'Zenburn'
+call plug#end()
 
-" commands for Vundle plugin manager
-filetype off
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Vundle Plugins
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'bling/vim-airline'
-Plugin 'ervandew/supertab'
-Plugin 'tpope/vim-surround'
-
-" All of your Plugins must be added before the following line
+" set lightline appearance
 set laststatus=2
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-
-" airline options
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#whitespace#enabled = 0
-function! AirlineInit()
-  let g:airline_section_a = airline#section#create(['mode'])
-  let g:airline_section_b = airline#section#create(['branch'])
-  let g:airline_section_c = airline#section#create(['hunks'])
-  let g:airline_section_x = airline#section#create(['filetype'])
-  let g:airline_section_y = airline#section#create(['BN: %{bufnr("%")}'])
-  let g:airline_section_z = airline#section#create(['(%l,%c)', ' - ', '%p'])
-endfunction
-autocmd User AirlineAfterInit call AirlineInit()
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_symbols.branch = '⎇'
+let g:lightline = {
+      \ 'colorscheme': 'Tomorrow_Night',
+      \ 'active': {
+      \   'left': [ [ 'mode' ],
+      \             [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component': {'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'},
+      \ 'component_visible_condition': {'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'}
+      \ }
 
 " NERDtree options
-nnoremap <C-N> :NERDTreeToggle<CR>
-
-" insert spaces instead of tabs and set tab width to 4 space
-"set tabstop=4
-"set shiftwidth=4
-"set softtabstop=4
-"set expandtab
-"set autoindent
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 " language indent overrides
 autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2
+
+" turn syntax on
+syntax on
 
 " set encoding
 set encoding=utf-8
@@ -113,11 +81,11 @@ set incsearch
 set splitbelow
 set splitright
 
-" remap split navigations (up, down, left, right)
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" remap split navigations (left, down, up, right)
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
 
 " remap page navigation to be consistent with j/k
 nnoremap <S-K> <S-H>
@@ -142,21 +110,20 @@ nnoremap <leader>o <C-W>o
 set foldlevel=99
 
 " set list characters for viewing whitespace
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:.
-
-" toggle whitespace using leader
+" and toggle on/off with leader-w
+set listchars+=eol:$,space:.
 nnoremap <leader>w :set list!<CR>
 
 " force markdown hilighting on *.md files
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " set the colorscheme
-"colorscheme solarized
+colorscheme Tomorrow-Night
 "set background=dark
-if has('gui_running')
-  colorscheme solarized
-  set background=dark
-else
-  colorscheme monokai
-  "set background=dark
-endif
+"if has('gui_running')
+"  colorscheme solarized
+"  set background=dark
+"else
+"  colorscheme monokai
+"  "set background=dark
+"endif

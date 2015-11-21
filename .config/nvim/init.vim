@@ -5,7 +5,22 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" themes
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'altercation/vim-colors-solarized'
+Plug 'Zenburn'
 call plug#end()
+
+" set lightline appearance
+let g:lightline = {
+      \ 'colorscheme': 'Tomorrow_Night',
+      \ 'active': {
+      \   'left': [ [ 'mode' ],
+      \             [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component': {'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'},
+      \ 'component_visible_condition': {'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'}
+      \ }
 
 " turn on syntax
 syntax on
@@ -33,11 +48,20 @@ set relativenumber
 set splitbelow
 set splitright
 
-" remap split navigations (up, down, left, right)
-"nnoremap <C-J> <C-W><C-J>
-"nnoremap <C-K> <C-W><C-K>
-"nnoremap <C-L> <C-W><C-L>
-"nnoremap <C-H> <C-W><C-H>
+" remap split navigations (left, down, up, right)
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
+
+" remap terminal insert to normal mode
+tnoremap <Esc> <C-\><C-n>
+
+" remap split navigation from terminal (left, down, up, right)
+tnoremap <M-h> <C-\><C-n><C-w>h
+tnoremap <M-j> <C-\><C-n><C-w>j
+tnoremap <M-k> <C-\><C-n><C-w>k
+tnoremap <M-l> <C-\><C-n><C-w>l
 
 " remap page navigation to be consistent with j/k
 nnoremap <S-K> <S-H>
@@ -61,15 +85,12 @@ nnoremap <leader>o <C-W>o
 " remove searched word highlighting
 nnoremap <leader>noh :noh<CR>
 
-" cancel terminal mode with ,escape
-"tnoremap ,<ESC> <C-\><C-n>
-
 " set list characters for viewing whitespace
 " and toggle on/off with leader-w
 set listchars+=eol:$,space:.
 nnoremap <leader>w :set list!<CR>
 
 " set colorscheme
-colorscheme monokai
+colorscheme Tomorrow-Night
 "set background=dark
 
