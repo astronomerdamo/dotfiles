@@ -25,16 +25,19 @@ Return a list of installed packages or nil for every skipped package."
 (package-initialize)
 
 ;; Assuming you wish to install "iedit" and "magit"
-(ensure-package-installed 'evil
-			  'helm
-			  'color-theme-solarized
-			  'sublime-themes
-			  'markdown-mode
-			  'magit)
+;;(ensure-package-installed 'evil
+;;			  'helm
+;;			  'color-theme-solarized
+;;			  'sublime-themes
+;;			  'markdown-mode
+;;			  'magit)
 
+(ensure-package-installed 'helm
+			  'color-theme-solarized
+			  'sublime-themes)
 ;; Required for VIM keybindings
-(require 'evil)
-(evil-mode t)
+;;(require 'evil)
+;;(evil-mode t)
 
 ;; Set solarized theme
 ;;(load-theme 'solarized t)
