@@ -4,7 +4,6 @@
 
 * `$ ln -s ~/<path>/dotfiles/.vimrc ~/.vimrc`
 * `$ ln -s ~/<path>/dotfiles/.vim ~/.vim`
-* `$ vim +PluginInstall +qall`
 
 ## NeoVim
 
