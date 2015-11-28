@@ -11,6 +11,7 @@
 ;; Activate installed packages
 (package-initialize)
 
+;; Define personalized packages and install
 (defun ensure-package-installed (&rest packages)
   (mapcar
   (lambda (package)
@@ -22,11 +23,11 @@
   packages))
 
 (ensure-package-installed
- 'helm
- 'evil
- 'color-theme-solarized
- 'sublime-themes
- 'zenburn-theme)
+  'helm
+  'evil
+  'color-theme-solarized
+  'sublime-themes
+  'zenburn-theme)
 
 ;; Required for VIM keybindings
 ;;(require 'evil)
@@ -45,9 +46,9 @@
   (set-frame-parameter nil 'background-mode 'dark)
   (set-terminal-parameter nil 'background-mode 'dark)
   (custom-set-variables
-   '(solarized-termcolors 256))
+    '(solarized-termcolors 256))
   (custom-set-faces
-   '(default ((t (:background nil))))))
+    '(default ((t (:background nil))))))
 
 (if window-system
     (setup-gui-env)
