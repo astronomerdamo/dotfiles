@@ -1,3 +1,7 @@
+;;
+;; Simple emacs config
+;;
+
 (require 'package)
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
@@ -33,9 +37,7 @@
 ;;(require 'evil)
 ;;(evil-mode t)
 
-;; Set the theme
-;; Zenburn for the emacs GUI
-;; Solarized Dark for the emacs in terminal
+;; Set emacs environment based on GUI or terminal use
 (defun setup-gui-env()
   (load-theme 'zenburn t)
   (scroll-bar-mode -1)
