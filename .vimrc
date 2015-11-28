@@ -118,12 +118,6 @@ nnoremap <leader>w :set list!<CR>
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " set the colorscheme
-colorscheme Tomorrow-Night
-"set background=dark
-"if has('gui_running')
-"  colorscheme solarized
-"  set background=dark
-"else
-"  colorscheme monokai
-"  "set background=dark
-"endif
+colorscheme solarized
+set background=dark
+
