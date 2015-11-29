@@ -15,6 +15,10 @@
 ;; Activate installed packages
 (package-initialize)
 
+;;
+;; User Package Management
+;;
+
 ;; Define personalized packages and install
 (defun ensure-package-installed (&rest packages)
   (mapcar
@@ -27,23 +31,51 @@
   packages))
 
 (ensure-package-installed
-  'helm
-  'evil
-  'color-theme-solarized
-  'sublime-themes
-  'zenburn-theme)
+ 'auto-complete
+ 'evil
+ 'helm
+ 'helm-projectile
+ 'projectile
+ 'color-theme-solarized
+ 'sublime-themes
+ 'zenburn-theme)
+
+;;
+;; Utilities
+;;
+
+;; Use projectile and helm
+(require 'helm-projectile)
+(projectile-global-mode)
+(helm-projectile-on)
+
+;;(setq projectile-completion-system 'helm)
+
+;; Turn helm on globally
+;;(require 'helm)
+;;(setq helm-buffers-fuzzy-matching t)
+;;(helm-mode 1)
 
 ;; Required for VIM keybindings
-;;(require 'evil)
+(require 'evil)
 ;;(evil-mode t)
+
+;; Turn on auto-complete
+(require 'auto-complete-config)
+(ac-config-default)
+
+;;
+;; User Environment Settings
+;;
 
 ;; Set emacs environment based on GUI or terminal use
 (defun setup-gui-env()
-  (load-theme 'zenburn t)
+  (load-theme 'brin t)
   (scroll-bar-mode -1)
   (tool-bar-mode -1))
 
 (defun setup-term-env()
+  (menu-bar-mode -1)
   (load-theme 'solarized t)
   (set-frame-parameter nil 'background-mode 'dark)
   (set-terminal-parameter nil 'background-mode 'dark)
@@ -83,3 +115,9 @@
 
 ;; Reduce wait for keystokes
 (setq echo-keystrokes 0.1)
+
+;;
+;; User key bindings
+;;
+
+(global-set-key (kbd "C-x e") 'evil-mode)
