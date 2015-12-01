@@ -48,7 +48,6 @@
 (require 'helm-projectile)
 (projectile-global-mode)
 (helm-projectile-on)
-
 ;;(setq projectile-completion-system 'helm)
 
 ;; Turn helm on globally
@@ -70,7 +69,7 @@
 
 ;; Set emacs environment based on GUI or terminal use
 (defun setup-gui-env()
-  (load-theme 'brin t)
+  (load-theme 'zenburn t)
   (scroll-bar-mode -1)
   (tool-bar-mode -1))
 
@@ -107,8 +106,9 @@
 (setq tab-width 4
       indent-tabs-mode nil)
 
-;; Turn off backup files
+;; Turn off backup files and auto-save
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 
 ;; Make yes/no options accept y/n
 (defalias 'yes-or-no-p 'y-or-n-p)
