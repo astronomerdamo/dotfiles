@@ -8,12 +8,12 @@
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
-;; Make sure to have downloaded archive description.
-(or (file-exists-p package-user-dir)
-    (package-refresh-contents))
-
 ;; Activate installed packages
 (package-initialize)
+
+;; Make sure to have downloaded archive description.
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
 ;;
 ;; User Package Management
@@ -33,6 +33,7 @@
 (ensure-package-installed
  'auto-complete
  'evil
+ 'guide-key
  'helm
  'helm-projectile
  'projectile
@@ -43,6 +44,10 @@
 ;;
 ;; Utilities
 ;;
+
+;; Required for VIM keybindings
+(require 'evil)
+(evil-mode t)
 
 ;; Use projectile and helm
 (require 'helm-projectile)
@@ -55,9 +60,12 @@
 ;;(setq helm-buffers-fuzzy-matching t)
 ;;(helm-mode 1)
 
-;; Required for VIM keybindings
-(require 'evil)
-;;(evil-mode t)
+;; Turn on Guide-Key
+;; Add:
+;;; Projectile
+(require 'guide-key)
+(setq guide-key/guide-key-sequence '("C-c p"))
+(guide-key-mode 1)
 
 ;; Turn on auto-complete
 (require 'auto-complete-config)
@@ -69,7 +77,7 @@
 
 ;; Set emacs environment based on GUI or terminal use
 (defun setup-gui-env()
-  (load-theme 'zenburn t)
+  (load-theme 'brin t)
   (scroll-bar-mode -1)
   (tool-bar-mode -1))
 
@@ -91,7 +99,7 @@
 (column-number-mode t)
 
 ;; Set line numbering
-;;(global-linum-mode t)
+(global-linum-mode t)
 
 ;; Turn on bracket matching
 (show-paren-mode t)
@@ -103,8 +111,7 @@
 (delete-selection-mode t)
 
 ;; Never insert tabs
-(setq tab-width 4
-      indent-tabs-mode nil)
+(setq indent-tabs-mode nil)
 
 ;; Turn off backup files and auto-save
 (setq make-backup-files nil)
@@ -116,8 +123,13 @@
 ;; Reduce wait for keystokes
 (setq echo-keystrokes 0.1)
 
+;; Fix janky scrolling with trackpad/mouse
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
+(setq mouse-wheel-progressive-speed nil)
+
 ;;
 ;; User key bindings
 ;;
 
+;; Toggle evil-mode on/off
 (global-set-key (kbd "C-x e") 'evil-mode)
