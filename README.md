@@ -7,11 +7,11 @@
 
 ## NeoVim
 
-* `$ ln -s ~/<path>/dctfilesk.config/nvim ~/.config/nvim`
+* `$ ln -s ~/<path>/dotfiles/.config/nvim ~/.config/nvim`
 
 ## Emacs
 
-* `$ ln -s ~/<path>/dotfiles/.emacs ~/.emacs`
+* `$ ln -s ~/<path>/dotfiles/.emacs.d/init.el ~/.emacs.d/init.el`
 
 ## Spacemacs
 

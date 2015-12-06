@@ -1,10 +1,12 @@
 " define plugins
-call plug#begin()
+call plug#begin('~/.config/nvim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'ervandew/supertab'
+Plug 'nvie/vim-flake8', { 'for': 'python' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " themes
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'altercation/vim-colors-solarized'
@@ -13,7 +15,7 @@ call plug#end()
 
 " set lightline appearance
 let g:lightline = {
-      \ 'colorscheme': 'Tomorrow_Night',
+      \ 'colorscheme': 'default',
       \ 'active': {
       \   'left': [ [ 'mode' ],
       \             [ 'fugitive', 'filename' ] ]
@@ -48,20 +50,8 @@ set relativenumber
 set splitbelow
 set splitright
 
-" remap split navigations (left, down, up, right)
-nnoremap <M-h> <C-w>h
-nnoremap <M-j> <C-w>j
-nnoremap <M-k> <C-w>k
-nnoremap <M-l> <C-w>l
-
 " remap terminal insert to normal mode
 tnoremap <Esc> <C-\><C-n>
-
-" remap split navigation from terminal (left, down, up, right)
-tnoremap <M-h> <C-\><C-n><C-w>h
-tnoremap <M-j> <C-\><C-n><C-w>j
-tnoremap <M-k> <C-\><C-n><C-w>k
-tnoremap <M-l> <C-\><C-n><C-w>l
 
 " remap page navigation to be consistent with j/k
 nnoremap <S-K> <S-H>
@@ -74,16 +64,36 @@ nnoremap <S-H> :bprevious<CR>
 " set leader key to space
 let mapleader = "\<space>"
 
+" remap split navigations (left, down, up, right)
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+
 " buffer options using leader
 nnoremap <leader>bd :bd<CR>
 nnoremap <leader>ls :ls<CR>
+
+" window splitting using leader
+nnoremap <leader>s <C-W>s
+nnoremap <leader>v <C-W>v
 
 " window closures using leader
 nnoremap <leader>c <C-W>c
 nnoremap <leader>o <C-W>o
 
 " remove searched word highlighting
-nnoremap <leader>noh :noh<CR>
+nnoremap <leader>n :noh<CR>
+
+" NERDtree options
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+" Flake8 my python
+nnoremap <leader>f :call Flake8()<CR>
+
+" enable code folding
+set foldmethod=indent
+set foldlevel=99
 
 " set list characters for viewing whitespace
 " and toggle on/off with leader-w
@@ -91,6 +101,6 @@ set listchars+=eol:$,space:.
 nnoremap <leader>w :set list!<CR>
 
 " set colorscheme
-colorscheme Tomorrow-Night
-"set background=dark
+colorscheme solarized
+set background=dark
 
