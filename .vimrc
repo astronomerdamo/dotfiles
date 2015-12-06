@@ -5,13 +5,13 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe'
 Plug 'nvie/vim-flake8', { 'for': 'python' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " themes
-Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'altercation/vim-colors-solarized'
 Plug 'Zenburn'
 call plug#end()
@@ -28,9 +28,6 @@ let g:lightline = {
       \ 'component_visible_condition': {'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'}
       \ }
 
-" language indent overrides
-autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2
-autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2
 
 " turn syntax on
 syntax on
@@ -64,6 +61,9 @@ set undolevels=500
 
 " show the cursor position all the time
 set ruler
+
+" always show two lines above an below cursor
+set scrolloff=2
 
 " allow mouse movement and selection
 set mouse=a
@@ -116,7 +116,11 @@ nnoremap <leader>n :noh<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Flake8 my python
-nnoremap <leader>f :call Flake8()<CR>
+nnoremap <leader>f8 :call Flake8()<CR>
+
+" set easy access to ag
+nnoremap <leader>ag :Ag 
+let g:ag_working_path_mode='r'
 
 " enable code folding
 set foldmethod=indent
@@ -126,6 +130,10 @@ set foldlevel=99
 " and toggle on/off with leader-w
 set listchars+=eol:$,space:.
 nnoremap <leader>w :set list!<CR>
+
+" language indent overrides
+autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2
+autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2
 
 " force markdown hilighting on *.md files
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown

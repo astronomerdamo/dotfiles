@@ -77,7 +77,7 @@
 
 ;; Set emacs environment based on GUI or terminal use
 (defun setup-gui-env()
-  (load-theme 'brin t)
+  (load-theme 'zenburn t)
   (scroll-bar-mode -1)
   (tool-bar-mode -1))
 

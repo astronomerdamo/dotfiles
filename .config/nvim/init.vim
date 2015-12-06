@@ -2,13 +2,13 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'nvie/vim-flake8', { 'for': 'python' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " themes
-Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'altercation/vim-colors-solarized'
 Plug 'Zenburn'
 call plug#end()
@@ -41,6 +41,9 @@ set nowrap
 
 " show the cursor position at all times
 set ruler
+
+" always show two lines above an below cursor
+set scrolloff=2
 
 " turn line number on with relative line numbers from cursor
 set number
@@ -89,7 +92,11 @@ nnoremap <leader>n :noh<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Flake8 my python
-nnoremap <leader>f :call Flake8()<CR>
+nnoremap <leader>f8 :call Flake8()<CR>
+
+" set easy access to ag
+nnoremap <leader>ag :Ag 
+let g:ag_working_path_mode='r'
 
 " enable code folding
 set foldmethod=indent
@@ -99,6 +106,9 @@ set foldlevel=99
 " and toggle on/off with leader-w
 set listchars+=eol:$,space:.
 nnoremap <leader>w :set list!<CR>
+
+" force markdown hilighting on *.md files
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " set colorscheme
 colorscheme solarized
