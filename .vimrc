@@ -8,7 +8,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'Valloric/YouCompleteMe'
+Plug 'ervandew/supertab'
 Plug 'nvie/vim-flake8', { 'for': 'python' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " themes
@@ -19,7 +19,7 @@ call plug#end()
 " set lightline appearance
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'default',
+      \ 'colorscheme': 'solarized_dark',
       \ 'active': {
       \   'left': [ [ 'mode' ],
       \             [ 'fugitive', 'filename' ] ]
@@ -113,7 +113,7 @@ nnoremap <leader>o <C-W>o
 nnoremap <leader>n :noh<CR>
 
 " NERDtree options
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <leader>nt :NERDTreeToggle<CR>
 
 " Flake8 my python
 nnoremap <leader>f8 :call Flake8()<CR>
