@@ -40,6 +40,7 @@
  'helm-projectile
  'projectile
  'color-theme-solarized
+ 'material-theme
  'sublime-themes
  'zenburn-theme)
 
@@ -76,13 +77,17 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
+;; Enable python linting/IDE features
+;; Requires Jedi Flake8 from pip
+(elpy-enable)
+
 ;;
 ;; User Environment Settings
 ;;
 
 ;; Set emacs environment based on GUI or terminal use
 (defun setup-gui-env()
-  (load-theme 'zenburn t)
+  (load-theme 'material t)
   (scroll-bar-mode -1)
   (tool-bar-mode -1))
 
