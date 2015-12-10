@@ -33,8 +33,10 @@
 (ensure-package-installed
  'auto-complete
  'evil
+ 'exec-path-from-shell
  'guide-key
  'helm
+ 'helm-ag
  'helm-projectile
  'projectile
  'color-theme-solarized
@@ -45,6 +47,10 @@
 ;; Utilities
 ;;
 
+;; Grab shell commands
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
 ;; Required for VIM keybindings
 (require 'evil)
 (evil-mode t)
@@ -53,7 +59,6 @@
 (require 'helm-projectile)
 (projectile-global-mode)
 (helm-projectile-on)
-;;(setq projectile-completion-system 'helm)
 
 ;; Turn helm on globally
 ;;(require 'helm)
@@ -133,3 +138,6 @@
 
 ;; Toggle evil-mode on/off
 (global-set-key (kbd "C-x e") 'evil-mode)
+
+;; Use helm-M-x in place of regular M-x
+(global-set-key (kbd "M-x") 'helm-M-x)
