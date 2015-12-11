@@ -34,11 +34,12 @@
  'auto-complete
  'evil
  'exec-path-from-shell
- 'guide-key
+ 'flycheck
  'helm
  'helm-ag
  'helm-projectile
  'projectile
+ 'which-key
  'color-theme-solarized
  'material-theme
  'sublime-themes
@@ -48,38 +49,42 @@
 ;; Utilities
 ;;
 
-;; Grab shell commands
+;; Grab shell commands because osx
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
-;; Required for VIM keybindings
+;; Use VIM keybindings!
 (require 'evil)
 (evil-mode t)
 
-;; Use projectile and helm
+;; Use projectile with helm instead of ido
 (require 'helm-projectile)
 (projectile-global-mode)
 (helm-projectile-on)
 
-;; Turn helm on globally
-;;(require 'helm)
-;;(setq helm-buffers-fuzzy-matching t)
-;;(helm-mode 1)
+;; Use helm globally
+(require 'helm-config)
+(helm-mode 1)
 
-;; Turn on Guide-Key
-;; Add:
-;;; Projectile
-(require 'guide-key)
-(setq guide-key/guide-key-sequence '("C-c p"))
-(guide-key-mode 1)
+;; Use which-key and force mini-buffer on the right
+(require 'which-key)
+(which-key-mode t)
+(which-key-setup-side-window-right)
 
 ;; Turn on auto-complete
 (require 'auto-complete-config)
 (ac-config-default)
 
 ;; Enable python linting/IDE features
-;; Requires Jedi Flake8 from pip
+;; - Requires Jedi Flake8 from pip
 (elpy-enable)
+
+;; Disable auto-complete.el on elpy-mode because it conflicts
+;;  with flycheck. Set up flycheck instead of flymake
+(add-hook 'elpy-mode-hook (lambda () (auto-complete-mode -1)))
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 ;;
 ;; User Environment Settings
@@ -144,5 +149,20 @@
 ;; Toggle evil-mode on/off
 (global-set-key (kbd "C-x e") 'evil-mode)
 
-;; Use helm-M-x in place of regular M-x
-(global-set-key (kbd "M-x") 'helm-M-x)
+;;
+;; Strange custom variable land
+;;
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(elpy-modules
+   (quote
+    (elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-yasnippet elpy-module-sane-defaults))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
