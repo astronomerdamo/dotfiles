@@ -31,7 +31,7 @@
   packages))
 
 (ensure-package-installed
- 'auto-complete
+ ;;'auto-complete
  'evil
  'exec-path-from-shell
  'flycheck
@@ -69,11 +69,11 @@
 ;; Use which-key and force mini-buffer on the right
 (require 'which-key)
 (which-key-mode t)
-(which-key-setup-side-window-right)
+(which-key-setup-side-window-bottom)
 
 ;; Turn on auto-complete
-(require 'auto-complete-config)
-(ac-config-default)
+;;(require 'auto-complete-config)
+;;(ac-config-default)
 
 ;; Enable python linting/IDE features
 ;; - Requires Jedi Flake8 from pip
@@ -81,7 +81,7 @@
 
 ;; Disable auto-complete.el on elpy-mode because it conflicts
 ;;  with flycheck. Set up flycheck instead of flymake
-(add-hook 'elpy-mode-hook (lambda () (auto-complete-mode -1)))
+;;(add-hook 'elpy-mode-hook (lambda () (auto-complete-mode -1)))
 (when (require 'flycheck nil t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
@@ -140,7 +140,7 @@
 
 ;; Fix janky scrolling with trackpad/mouse
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
-(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-progressive-speed t)
 
 ;;
 ;; User key bindings
