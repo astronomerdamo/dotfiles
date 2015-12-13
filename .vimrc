@@ -110,7 +110,7 @@ nnoremap <leader>c <C-W>c
 nnoremap <leader>o <C-W>o
 
 " remove searched word highlighting
-nnoremap <leader>n :noh<CR>
+nnoremap <leader>nh :noh<CR>
 
 " NERDtree options
 nnoremap <leader>nt :NERDTreeToggle<CR>
