@@ -40,8 +40,8 @@
  'helm-projectile
  'projectile
  'which-key
- 'color-theme-solarized
  'material-theme
+ 'solarized-theme
  'sublime-themes
  'zenburn-theme)
 
@@ -92,13 +92,13 @@
 
 ;; Set emacs environment based on GUI or terminal use
 (defun setup-gui-env()
-  (load-theme 'material t)
+  (load-theme 'solarized-dark t)
   (scroll-bar-mode -1)
   (tool-bar-mode -1))
 
 (defun setup-term-env()
   (menu-bar-mode -1)
-  (load-theme 'solarized t)
+  (load-theme 'solarized-dark t)
   (set-frame-parameter nil 'background-mode 'dark)
   (set-terminal-parameter nil 'background-mode 'dark)
   (custom-set-variables
@@ -152,6 +152,7 @@
 ;;
 ;; Strange custom variable land
 ;;
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
