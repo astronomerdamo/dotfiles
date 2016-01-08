@@ -73,20 +73,20 @@ nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 
-" buffer options using leader
-nnoremap <leader>bd :bd<CR>
-nnoremap <leader>ls :ls<CR>
-
 " window splitting using leader
-nnoremap <leader>s <C-W>s
-nnoremap <leader>v <C-W>v
+nnoremap <leader>s <C-w>s
+nnoremap <leader>v <C-w>v
 
 " window closures using leader
-nnoremap <leader>c <C-W>c
-nnoremap <leader>o <C-W>o
+nnoremap <leader>c <C-w>c
+nnoremap <leader>o <C-w>o
 
 " remove searched word highlighting
 nnoremap <leader>nh :noh<CR>
+
+" Use leader for common CtrlP plugin commands
+nnoremap <leader>t :CtrlP<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
 
 " NERDtree options
 nnoremap <leader>nt :NERDTreeToggle<CR>
