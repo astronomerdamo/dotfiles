@@ -4,11 +4,12 @@ set nocompatible
 " define plugins
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ervandew/supertab'
 Plug 'itchyny/lightline.vim'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'ervandew/supertab'
+Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'nvie/vim-flake8', { 'for': 'python' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " themes
