@@ -1,0 +1,19 @@
+#!/bin/bash
+
+DOTFILE_LIST=(
+  .vimrc
+  .vim
+  .config/nvim
+  .emacs.d/init.el
+  .spacemacs
+  .zshrc
+  .oh-my-zsh/custom/themes
+  .oh-my-zsh/custom/custom_alias.zsh
+  .gitconfig
+)
+
+for dotfile in ${DOTFILE_LIST[*]}
+do
+	ln -shfF ~/Developer/dotfiles/${dotfile} ~/${dotfile}
+done
+
