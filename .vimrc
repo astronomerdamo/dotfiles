@@ -82,12 +82,12 @@ set splitbelow
 set splitright
 
 " remap page navigation to be consistent with j/k
-nnoremap <S-K> <S-H>
-nnoremap <S-J> <S-L>
+"nnoremap <S-K> <S-H>
+"nnoremap <S-J> <S-L>
 
 " cycle through buffers easily
-nnoremap <S-L> :bnext<CR>
-nnoremap <S-H> :bprevious<CR>
+"nnoremap <S-L> :bnext<CR>
+"nnoremap <S-H> :bprevious<CR>
 
 " set leader key to space
 let mapleader = "\<space>"
