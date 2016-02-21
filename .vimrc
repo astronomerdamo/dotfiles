@@ -20,7 +20,7 @@ call plug#end()
 " set lightline appearance
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'solarized_dark',
+      \ 'colorscheme': 'solarized_light',
       \ 'active': {
       \   'left': [ [ 'mode' ],
       \             [ 'fugitive', 'filename' ] ]
@@ -141,5 +141,5 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " set the colorscheme
 colorscheme solarized
-set background=dark
+set background=light
 
