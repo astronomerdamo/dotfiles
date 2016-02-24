@@ -2,13 +2,10 @@
 
 DOTFILE_LIST=(
   .vimrc
-  .vim
-  .config/nvim
+  .config/nvim/init.vim
   .emacs.d/init.el
-  .spacemacs
   .zshrc
   .oh-my-zsh/custom/themes
-  .oh-my-zsh/custom/custom_alias.zsh
   .gitconfig
   .virtualenvs/postactivate
   .virtualenvs/postdeactivate
