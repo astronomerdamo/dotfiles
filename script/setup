@@ -1,18 +1,4 @@
 #!/bin/bash
 
-DOTFILE_LIST=(
-  .vimrc
-  .config/nvim/init.vim
-  .emacs.d/init.el
-  .zshrc
-  .oh-my-zsh/custom/themes
-  .gitconfig
-  .virtualenvs/postactivate
-  .virtualenvs/postdeactivate
-)
-
-for dotfile in ${DOTFILE_LIST[*]}
-do
-	ln -shfF ~/Developer/dotfiles/${dotfile} ~/${dotfile}
-done
+rsync -avuh HOME/ ~/
 
