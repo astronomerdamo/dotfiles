@@ -1,4 +1,4 @@
-# Sunrise theme for oh-my-zsh
+# Orion theme for oh-my-zsh, based on sunrise theme included in ohmyzsh
 # Intended to be used with Solarized: http://ethanschoonover.com/solarized
 # (Needs Git plugin for current_branch method)
 
@@ -11,18 +11,11 @@ Y=$fg_no_bold[yellow]
 B=$fg_no_bold[blue]
 RESET=$reset_color
 
-if [ "$USER" = "root" ]; then
-    # PREFIX="%{$R%}!!%{$RESET%}";
-    RET_STATUS="%{$R%}!!%{$RESET%}";
-else
-    # local PREFIX="%(?:%{$G%}--:%{$R%}--%s)%{$RESET%}";
+if [ "$USER" = "Damo" ]; then
     local RET_STATUS="%(?:%{$G%}λ:%{$R%}Λ%s)";
-    #local CMD_KEY="%(?:%!:%{$R%}%!%s)";
-    # PREFIX="%{$B%}--%{$RESET%}";
+else
+    RET_STATUS="%{$R%}!!%{$RESET%}";
 fi
-
-# local return_code="%(?..%{$R%}%? ↵%{$RESET%})"
-# local ret_status="%(?:%{$G%}ᐅ:%{$R%}ᐅ%s)"
 
 # Get the status of the working tree (copied and modified from git.zsh)
 custom_git_prompt_status() {
@@ -72,16 +65,7 @@ function custom_git_prompt() {
   echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$(git_prompt_ahead)$(custom_git_prompt_status)$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
-# %B sets bold text
-#PROMPT='%B$PREFIX %2~ $(custom_git_prompt)%{$G%}»%{$RESET%} '
-
 PROMPT='%{$G%}/%{$B%}%c%{$RESET%} $(custom_git_prompt)${RET_STATUS}%{$RESET%} '
-
-#PROMPT='$PREFIX %{$B%}%~%{$RESET%} $(custom_git_prompt)
-#${CMD_KEY} ${RET_STATUS}%{$RESET%} '
-#PROMPT='%{$B%}%~%{$RESET%} $(custom_git_prompt)
-#${CMD_KEY} ${RET_STATUS}%{$RESET%} '
-# RPS1="${return_code}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$Y%}["
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$Y%}]%{$RESET%} "
@@ -90,7 +74,6 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$O%}*"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 ZSH_THEME_GIT_PROMPT_AHEAD="%{$B%}➔"
-
 
 ZSH_THEME_GIT_STATUS_PREFIX=" "
 
