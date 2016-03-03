@@ -67,8 +67,8 @@ function custom_git_prompt() {
 
 PROMPT='%{$G%}/%{$B%}%c%{$RESET%} $(custom_git_prompt)${RET_STATUS}%{$RESET%} '
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$Y%}["
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$Y%}]%{$RESET%} "
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$Y%}git:"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$RESET%} "
 
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$O%}*"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
