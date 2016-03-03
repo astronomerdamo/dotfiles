@@ -1,4 +1,5 @@
 #!/bin/bash
 
 rsync -avuh HOME/ ~/
-
+cat ~/Sync/HOME/personal_github_token.sh >> ~/.zshrc
+cat ~/Sync/HOME/personal_github_token.sh >> ~/.bashrc

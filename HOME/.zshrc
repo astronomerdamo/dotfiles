@@ -51,3 +51,5 @@ source $ZSH/oh-my-zsh.sh
 alias brfull='bubu && brew doctor'
 alias clear=" clear"
 alias pwd=" pwd"
+
+# GitHub Personal Token

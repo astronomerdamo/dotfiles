@@ -103,3 +103,5 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Source FZF
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# GitHub Personal Token
