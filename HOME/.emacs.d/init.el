@@ -32,6 +32,7 @@
 
 (ensure-package-installed
  ;;'auto-complete
+ 'elpy
  'evil
  'exec-path-from-shell
  'flycheck
