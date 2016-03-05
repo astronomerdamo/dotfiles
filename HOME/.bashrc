@@ -60,10 +60,10 @@ export EDITOR="vim"
 export HISTSIZE=65536
 export HISTFILE=~/.bash_history
 export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL=ignoredups:erasedups
+export HISTCONTROL=ignoreboth
 
 # Disregard following commands from history
-export HISTIGNORE="exit:clear:history:ls:la:ll:[ \t]*"
+export HISTIGNORE="exit:clear:history:ls:la:ll"
 
 # Highlight section titles in manual pages
 export LESS_TERMCAP_md="${yellow}"
@@ -83,10 +83,10 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X
 
 # Python
 export WORKON_HOME=$HOME/.virtualenvs
+source $(brew --prefix)/bin/virtualenvwrapper.sh
 
 # Ruby Env
 eval "$(rbenv init -)"
-source $(brew --prefix)/bin/virtualenvwrapper.sh
 
 # Shopify
 alias cluster='PYTHON_ENV=remote_development'
