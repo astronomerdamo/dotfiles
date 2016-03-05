@@ -1,5 +1,15 @@
 #!/bin/bash
 
 rsync -avuh HOME/ ~/
+
+if test ~/.zshrc -nt HOME/.zshrc;
+then
+	sed -i '' -e '$ d' ~/.zshrc
+fi
 cat ~/Sync/HOME/personal_github_token.sh >> ~/.zshrc
+
+if test ~/.bashrc -nt HOME/.bashrc;
+then
+	sed -i '' -e '$ d' ~/.bashrc
+fi
 cat ~/Sync/HOME/personal_github_token.sh >> ~/.bashrc
