@@ -17,10 +17,6 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X
 export FZF_DEFAULT_COMMAND='ag -l -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# Set history size
-HISTSIZE=65536
-SAVEHIST=65536
-
 # Python
 export WORKON_HOME=$HOME/.virtualenvs
 source $(brew --prefix)/bin/virtualenvwrapper.sh
@@ -44,6 +40,10 @@ source $(brew --prefix nvm)/nvm.sh
 # Source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+# Set history size
+HISTSIZE=65536
+SAVEHIST=65536
+
 # Source FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -51,5 +51,6 @@ source $ZSH/oh-my-zsh.sh
 alias brfull='bubu && brew doctor'
 alias clear=" clear"
 alias pwd=" pwd"
+alias exit=" exit"
 
 # GitHub Personal Token

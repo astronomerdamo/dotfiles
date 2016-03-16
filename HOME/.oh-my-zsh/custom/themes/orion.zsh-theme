@@ -12,10 +12,12 @@ B=$fg_no_bold[blue]
 RESET=$reset_color
 
 if [ "$USER" = "Damo" ]; then
-    local RET_STATUS="%(?:%{$G%}λ:%{$R%}Λ%s)";
+    local RET_STATUS="%{$R%}-- %(?:%{$G%}λ:%{$R%}Λ%s)";
 else
-    RET_STATUS="%{$R%}!!%{$RESET%}";
+    RET_STATUS="%{$R%}!!";
 fi
+
+local return_code="%(?..%{$R%}%? ↵%{$RESET%})"
 
 # Get the status of the working tree (copied and modified from git.zsh)
 custom_git_prompt_status() {
@@ -65,7 +67,9 @@ function custom_git_prompt() {
   echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$(git_prompt_ahead)$(custom_git_prompt_status)$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
-PROMPT='%{$G%}/%{$B%}%c%{$RESET%} $(custom_git_prompt)${RET_STATUS}%{$RESET%} '
+PROMPT='%{$B%}%2~%{$RESET%} $(custom_git_prompt)
+${RET_STATUS}%{$RESET%} '
+RPS1="${return_code}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$Y%}git:"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$RESET%} "
