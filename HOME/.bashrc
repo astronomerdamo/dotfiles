@@ -48,7 +48,7 @@ function parse_git_dirty {
 }
 
 #export PS2="\W \`parse_git_branch\` "
-export PS1="\[\e[34m\]\W/\[\e[0m\] \[\e[33m\]\`parse_git_branch\`\[\e[0m\]\n\[\e[31m\]-- \[\e[32m\]λ\[\e[0m\] "
+export PS1="\[\e[34m\]\w/\[\e[0m\] \[\e[33m\]\`parse_git_branch\`\[\e[0m\]\n\A \[\e[32m\]λ\[\e[0m\] "
 
 # Pull aliases
 [[ -a ~/.bash_aliases ]] && source ~/.bash_aliases

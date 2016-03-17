@@ -12,7 +12,7 @@ B=$fg_no_bold[blue]
 RESET=$reset_color
 
 if [ "$USER" = "Damo" ]; then
-    local RET_STATUS="%{$R%}-- %(?:%{$G%}λ:%{$R%}Λ%s)";
+    local RET_STATUS="%(?:%{$G%}λ:%{$R%}Λ%s)";
 else
     RET_STATUS="%{$R%}!!";
 fi
@@ -68,7 +68,7 @@ function custom_git_prompt() {
 }
 
 PROMPT='%{$B%}%2~%{$RESET%} $(custom_git_prompt)
-${RET_STATUS}%{$RESET%} '
+%D{%H:%M} ${RET_STATUS}%{$RESET%} '
 RPS1="${return_code}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$Y%}git:"
