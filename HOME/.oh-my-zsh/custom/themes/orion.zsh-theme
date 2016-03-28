@@ -17,6 +17,6 @@ ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}✗%{$RESET%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}✔%{$RESET%}"
 
 # Final Prompt
-PROMPT='%{$fg[blue]%}%2~%{$RESET%} $(git_prompt_info)
+PROMPT='%{$fg[blue]%}%~%{$RESET%} $(git_prompt_info)
 %D{%H:%M} ${RET_STATUS}%{$RESET%} '
 RPS1="${return_code}"
