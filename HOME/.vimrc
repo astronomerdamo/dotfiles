@@ -81,6 +81,9 @@ set incsearch
 set splitbelow
 set splitright
 
+" allow visually selected test to be searchable via `//`
+vnoremap // y/<C-R>"<CR>
+
 " remap page navigation to be consistent with j/k
 "nnoremap <S-K> <S-H>
 "nnoremap <S-J> <S-L>
