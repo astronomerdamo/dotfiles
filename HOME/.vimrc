@@ -4,7 +4,6 @@ set nocompatible
 " define plugins
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'ervandew/supertab'
 Plug 'itchyny/lightline.vim'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
@@ -14,20 +13,22 @@ Plug 'nvie/vim-flake8', { 'for': 'python' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " themes
 Plug 'altercation/vim-colors-solarized'
-Plug 'Zenburn'
+Plug 'joshdick/onedark.vim'
+Plug 'AlessandroYorba/Sierra'
+Plug 'jnurmine/Zenburn'
 call plug#end()
 
 " set lightline appearance
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'solarized_dark',
-      \ 'active': {
-      \   'left': [ [ 'mode' ],
-      \             [ 'fugitive', 'filename' ] ]
-      \ },
-      \ 'component': {'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'},
-      \ 'component_visible_condition': {'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'}
-      \ }
+    \ 'colorscheme': 'default',
+    \ 'active': {
+    \   'left': [ [ 'mode' ],
+    \             [ 'fugitive', 'filename' ] ]
+    \ },
+    \ 'component': {'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'},
+    \ 'component_visible_condition': {'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'}
+    \ }
 
 
 " turn syntax on
@@ -71,7 +72,6 @@ set mouse=a
 
 " turn line number on with relative line numbers from cursor
 set number
-set relativenumber
 
 " make search highlight all matchesi and incremental search
 set hlsearch
@@ -83,14 +83,6 @@ set splitright
 
 " allow visually selected test to be searchable via `//`
 vnoremap // y/<C-R>"<CR>
-
-" remap page navigation to be consistent with j/k
-"nnoremap <S-K> <S-H>
-"nnoremap <S-J> <S-L>
-
-" cycle through buffers easily
-"nnoremap <S-L> :bnext<CR>
-"nnoremap <S-H> :bprevious<CR>
 
 " set leader key to space
 let mapleader = "\<space>"
@@ -143,6 +135,7 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " set the colorscheme
-colorscheme solarized
-set background=dark
-
+if has("gui_running")
+    set background=dark
+    colorscheme solarized
+endif

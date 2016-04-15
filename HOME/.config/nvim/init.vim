@@ -1,7 +1,6 @@
 " define plugins
 call plug#begin('~/.config/nvim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'ervandew/supertab'
 Plug 'itchyny/lightline.vim'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
@@ -11,19 +10,22 @@ Plug 'nvie/vim-flake8', { 'for': 'python' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " themes
 Plug 'altercation/vim-colors-solarized'
-Plug 'Zenburn'
+Plug 'joshdick/onedark.vim'
+Plug 'AlessandroYorba/Sierra'
+Plug 'jnurmine/Zenburn'
 call plug#end()
 
 " set lightline appearance
+set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'solarized_light',
-      \ 'active': {
-      \   'left': [ [ 'mode' ],
-      \             [ 'fugitive', 'filename' ] ]
-      \ },
-      \ 'component': {'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'},
-      \ 'component_visible_condition': {'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'}
-      \ }
+    \ 'colorscheme': 'default',
+    \ 'active': {
+    \   'left': [ [ 'mode' ],
+    \             [ 'fugitive', 'filename' ] ]
+    \ },
+    \ 'component': {'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'},
+    \ 'component_visible_condition': {'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'}
+    \ }
 
 " turn on syntax
 syntax on
@@ -48,7 +50,6 @@ set scrolloff=2
 
 " turn line number on with relative line numbers from cursor
 set number
-set relativenumber
 
 " open splits to the right and below of current view
 set splitbelow
@@ -59,14 +60,6 @@ tnoremap <Esc> <C-\><C-n>
 
 " allow visually selected test to be searchable via `//`
 vnoremap // y/<C-R>"<CR>
-
-" remap page navigation to be consistent with j/k
-"nnoremap <S-K> <S-H>
-"nnoremap <S-J> <S-L>
-
-" cycle through buffers easily
-"nnoremap <S-L> :bnext<CR>
-"nnoremap <S-H> :bprevious<CR>
 
 " set leader key to space
 let mapleader = "\<space>"
@@ -115,6 +108,6 @@ nnoremap <leader>w :set list!<CR>
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " set colorscheme
-colorscheme solarized
-set background=light
+" set background=light
+" colorscheme solarized
 
