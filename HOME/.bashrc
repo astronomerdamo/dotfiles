@@ -65,7 +65,7 @@ eval "$(rbenv init -)"
 alias cluster='PYTHON_ENV=remote_development'
 export HADOOP_CONF_DIR=~/Developer/starscream/.cache/spark/current/conf/conf.cloudera.yarn
 export HADOOP_USER_NAME="damienrobertson"
-# export NO_AUTOAUTOLINT=true
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 export VAGRANT_CWD=~/Developer/vagrant
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
