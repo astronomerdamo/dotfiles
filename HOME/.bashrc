@@ -63,6 +63,7 @@ eval "$(rbenv init -)"
 
 # Shopify
 alias cluster='PYTHON_ENV=remote_development'
+export STARSCREAM_MOTD=0
 export HADOOP_CONF_DIR=~/Developer/starscream/.cache/spark/current/conf/conf.cloudera.yarn
 export HADOOP_USER_NAME="damienrobertson"
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
