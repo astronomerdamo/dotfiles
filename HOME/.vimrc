@@ -16,6 +16,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'joshdick/onedark.vim'
 Plug 'AlessandroYorba/Sierra'
 Plug 'jnurmine/Zenburn'
+Plug 'hhsnopek/vim-firewatch'
 call plug#end()
 
 " set lightline appearance
@@ -136,6 +137,8 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " set the colorscheme
 if has("gui_running")
-    set background=dark
-    colorscheme solarized
+	colorscheme zenburn
+else
+	colorscheme firewatch
+	set background=light
 endif
