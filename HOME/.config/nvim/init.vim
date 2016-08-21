@@ -11,7 +11,6 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " themes
 Plug 'altercation/vim-colors-solarized'
 Plug 'joshdick/onedark.vim'
-Plug 'AlessandroYorba/Sierra'
 Plug 'jnurmine/Zenburn'
 Plug 'hhsnopek/vim-firewatch'
 call plug#end()
@@ -33,6 +32,9 @@ syntax on
 
 " allow hidden buffers
 set hidden
+
+" stop file has changed messages when switching branches
+:set autoread
 
 " show matching brackets, quotes
 set showmatch
@@ -109,6 +111,6 @@ nnoremap <leader>w :set list!<CR>
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " set colorscheme
-colorscheme firewatch
-set background=light
+set t_Co=256
+colorscheme default
 

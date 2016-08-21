@@ -5,7 +5,7 @@ export ZSH=/Users/Damo/.oh-my-zsh
 ZSH_THEME="orion"
 
 # oh-my-zsh plugins.
-plugins=(gitfast brew)
+plugins=(gitfast brew virtualenvwrapper)
 
 # Set EDITOR
 export EDITOR='vim'
