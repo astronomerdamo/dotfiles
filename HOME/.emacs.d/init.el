@@ -139,6 +139,9 @@
 ;; Reduce wait for keystokes
 (setq echo-keystrokes 0.1)
 
+;; Remove trailing whitespace
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; Fix janky scrolling with trackpad/mouse and keyboard
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 (setq mouse-wheel-progressive-speed nil)
