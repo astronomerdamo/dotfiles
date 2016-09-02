@@ -12,7 +12,8 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'joshdick/onedark.vim'
 Plug 'jnurmine/Zenburn'
-Plug 'hhsnopek/vim-firewatch'
+Plug 'rakr/vim-two-firewatch'
+Plug 'jdkanani/vim-material-theme'
 call plug#end()
 
 " set lightline appearance

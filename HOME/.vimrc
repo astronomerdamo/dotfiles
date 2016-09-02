@@ -15,7 +15,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'joshdick/onedark.vim'
 Plug 'jnurmine/Zenburn'
-Plug 'hhsnopek/vim-firewatch'
+Plug 'rakr/vim-two-firewatch'
 Plug 'jdkanani/vim-material-theme'
 call plug#end()
 
@@ -139,11 +139,11 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " set the colorscheme
+set t_Co=256
+set bg=dark
 if has("gui_running")
-	set t_Co=256
-	set bg=dark
-	colorscheme material-theme
+	let g:two_firewatch_italics=1
+	colorscheme two-firewatch
 else
-	set t_Co=256
 	colorscheme default
 endif
