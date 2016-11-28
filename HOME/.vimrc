@@ -142,8 +142,8 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 set t_Co=256
 set bg=dark
 if has("gui_running")
-	let g:two_firewatch_italics=1
-	colorscheme two-firewatch
+	colorscheme solarized
+	let g:lightline['colorscheme'] = 'solarized'
 else
 	colorscheme default
 endif
