@@ -3,12 +3,14 @@ alias l="ls -hlAG"
 alias ls="ls -G"
 
 # Git
+alias ga="git add"
 alias gcm="git checkout master"
 alias gco="git checkout"
-alias gct="git commit -v"
-alias gpl="git pull"
+alias gc="git commit -v"
+alias gd="git diff"
+alias gl="git pull"
+alias gp="git push"
 alias grb="git rebase"
-alias gst="git status"
 alias gss="git status -s"
 
 # Brew

@@ -1,2 +1,2 @@
-# Pull aliases
+# Pull bashrc
 [[ -a ~/.bashrc ]] && source ~/.bashrc
