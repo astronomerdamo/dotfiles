@@ -5,7 +5,7 @@ export ZSH=/Users/Damo/.oh-my-zsh
 ZSH_THEME="orion"
 
 # oh-my-zsh plugins.
-plugins=(gitfast brew virtualenvwrapper)
+plugins=(gitfast brew)
 
 # Set EDITOR
 export EDITOR='vim'
@@ -14,25 +14,12 @@ export EDITOR='vim'
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin"
 
 # Spark setup (conflicts with starscream)
-# export PYSPARK_PYTHON=python3
-# export PYSPARK_DRIVER_PYTHON=ipython
+export PYSPARK_PYTHON=python3
+export PYSPARK_DRIVER_PYTHON=ipython
 
 # Python
 export WORKON_HOME=$HOME/.virtualenvs
 source $(brew --prefix)/bin/virtualenvwrapper.sh
-
-# Ruby Env
-eval "$(rbenv init -)"
-
-# Shopify
-alias cluster='PYTHON_ENV=remote_development'
-export STARSCREAM_MOTD=0
-export HADOOP_CONF_DIR=~/Developer/starscream/.cache/spark/current/conf/conf.cloudera.yarn
-export HADOOP_USER_NAME="damienrobertson"
-[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
-export VAGRANT_CWD=~/Developer/vagrant
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
 
 # Source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
