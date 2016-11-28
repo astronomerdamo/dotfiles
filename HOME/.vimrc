@@ -45,7 +45,7 @@ set backspace=indent,eol,start
 set hidden
 
 " stop file has changed messages when switching branches
-:set autoread
+set autoread
 
 " show matching braces, quotes
 set showmatch
@@ -143,7 +143,6 @@ set t_Co=256
 set bg=dark
 if has("gui_running")
 	colorscheme solarized
-	let g:lightline['colorscheme'] = 'solarized'
 else
 	colorscheme default
 endif
