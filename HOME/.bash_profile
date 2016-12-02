@@ -1,2 +1,2 @@
-# Pull bashrc
-[[ -a ~/.bashrc ]] && source ~/.bashrc
+# Source bashrc
+[ -f ~/.bashrc ] && source ~/.bashrc

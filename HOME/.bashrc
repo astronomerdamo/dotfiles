@@ -1,38 +1,16 @@
-# Prompt
-RED='\[$(tput setaf 1)\]'
-GREEN='\[$(tput setaf 2)\]'
-YELLOW='\[$(tput setaf 3)\]'
-BLUE='\[$(tput setaf 4)\]'
-WHITE='\[$(tput setaf 7)\]'
-RESET='\[$(tput sgr0)\]'
+# Simple bashrc
+# Use script/setup to update
+#
 
-# Get current branch in git repo and determine if dirty or clean
-function parse_git_branch(){
-  BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
-  if [ ! ${BRANCH} == "" ]; then
-    STATE=$(git status --porcelain 2> /dev/null | wc -l | tr -d " ")
-    if [ ${STATE} == 0 ]; then
-      GIT_STATE=${GREEN}✔
-    else
-      GIT_STATE=${RED}✗
-    fi
-    echo "${YELLOW}${BRANCH} ${GIT_STATE}${RESET}"
-  else
-    echo ""
-  fi
-}
-
-function set_bash_prompt(){
-	PS1="${BLUE}\w${RESET} $(parse_git_branch)\n${WHITE}\A ${GREEN}λ${RESET} "
-}
-
-PROMPT_COMMAND=set_bash_prompt
-
-# Pull aliases
-[[ -a ~/Developer/dotfiles/bash/.bash_aliases ]] && source ~/Developer/dotfiles/bash/.bash_aliases
-
-# Pull functions
-[[ -a ~/Developer/dotfiles/bash/.bash_functions ]] && source ~/Developer/dotfiles/bash/.bash_functions
+# Source externals
+bash_filepath=~/Developer/dotfiles/bash/
+for bash_file in $(ls ${bash_filepath}); do
+	if test "${bash_filepath}${bash_file}"; then
+		source "${bash_filepath}${bash_file}"
+	else
+		echo "BASHRC: WARNING ${bash_file} NOT FOUND"
+	fi
+done
 
 # Make vim the default editor
 export EDITOR="vim"
