@@ -1,4 +1,7 @@
-# Prompt
+# Simple bash prompt with git support
+#
+
+# Define colours
 RED='\[$(tput setaf 1)\]'
 GREEN='\[$(tput setaf 2)\]'
 YELLOW='\[$(tput setaf 3)\]'
@@ -8,22 +11,48 @@ RESET='\[$(tput sgr0)\]'
 
 # Get current branch in git repo and determine if dirty or clean
 function parse_git_branch(){
-  BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
-  if [ ! ${BRANCH} == "" ]; then
-    STATE=$(git status --porcelain 2> /dev/null | wc -l | tr -d " ")
-    if [ ${STATE} == 0 ]; then
-      GIT_STATE=${GREEN}✔
-    else
-      GIT_STATE=${RED}✗
-    fi
-    echo "${YELLOW}${BRANCH} ${GIT_STATE}${RESET}"
-  else
-    echo ""
-  fi
+
+	# Get current branch
+	RAW_BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+
+	# Initialize git status to Null
+	GIT_STATUS=""
+
+	# Parse git branch
+	#  - Not a git repo
+	#  - Git repo with unusual status
+	#  - Git repo with
+	#    - clean status
+	#    - dirty status
+	if [ -z "${RAW_BRANCH}" ]; then
+		GIT_PROMPT="${RESET}"
+	elif [ -n "$(echo ${RAW_BRANCH} | grep '(.*)')" ]; then
+		GIT_PROMPT="${RED}MERGE${RESET}"
+	else
+    		STATE=$(git status --porcelain 2> /dev/null | wc -l | tr -d ' ')
+		if [ ${STATE} -eq 0 ]; then
+      			GIT_STATE="${GREEN}✔"
+		else
+      			GIT_STATE="${RED}✗"
+		fi
+		GIT_PROMPT="${YELLOW}${RAW_BRANCH} ${GIT_STATE}${RESET}"
+	fi
+
+	echo ${GIT_PROMPT}
+}
+
+function get_background_jobs(){
+	NUM_JOBS=$(jobs | wc -l | tr -d '. ')
+	if [ ${NUM_JOBS} -eq 0 ]; then
+		JOBS_PROMPT="${NUM_JOBS}${RESET}"
+	else
+		JOBS_PROMPT="${RED}${NUM_JOBS}${RESET}"
+	fi
+	echo ${JOBS_PROMPT}
 }
 
 function set_bash_prompt(){
-	PS1="${BLUE}\w${RESET} $(parse_git_branch)\n${WHITE}\A ${GREEN}λ${RESET} "
+	PS1="${BLUE}\w $(parse_git_branch)\n$(get_background_jobs)~${WHITE}\A ${GREEN}λ${RESET} "
 }
 
 PROMPT_COMMAND=set_bash_prompt
