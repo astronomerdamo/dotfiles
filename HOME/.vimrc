@@ -5,7 +5,6 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
@@ -117,10 +116,6 @@ nnoremap <leader>nt :NERDTreeToggle<CR>
 
 " Flake8 my python
 nnoremap <leader>f8 :call Flake8()<CR>
-
-" set easy access to ag
-nnoremap <leader>ag :Ag 
-let g:ag_working_path_mode='r'
 
 " enable code folding
 set foldmethod=indent
