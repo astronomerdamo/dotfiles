@@ -1,6 +1,7 @@
 # General
 alias l="ls -hlAG"
 alias ls="ls -G"
+alias rm="rm -i"
 
 # Git
 alias ga="git add"
