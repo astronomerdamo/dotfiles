@@ -3,7 +3,12 @@
 #
 
 # Source externals
-bash_filepath=~/Developer/dotfiles/bash/
+if [ -d "$HOME/Developer/dotfiles/bash/" ]; then
+	bash_filepath="$HOME/Developer/dotfiles/bash/"
+else
+	bash_filepath="$HOME/developer/dotfiles/bash/"
+fi
+
 for bash_file in $(ls ${bash_filepath}); do
 	if test "${bash_filepath}${bash_file}"; then
 		source "${bash_filepath}${bash_file}"
