@@ -9,6 +9,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'nvie/vim-flake8', { 'for': 'python' }
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " themes
 Plug 'altercation/vim-colors-solarized'
@@ -137,7 +138,7 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 set t_Co=256
 set bg=dark
 if has("gui_running")
-	colorscheme solarized
+	colorscheme onedark
 else
 	colorscheme default
 endif
