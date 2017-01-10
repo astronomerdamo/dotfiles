@@ -2,90 +2,76 @@
 ;; Simple emacs config
 ;;
 
+;;
+;; Package Management
+;;
+
 (require 'package)
 
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(setq
+ package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+		    ("org" . "http://orgmode.org/elpa/")
+                    ("melpa" . "http://melpa.org/packages/")
+                    ("melpa-stable" . "http://stable.melpa.org/packages/"))
+ package-archive-priorities '(("melpa-stable" . 1)))
 
 ;; Activate installed packages
 (package-initialize)
 
 ;; Make sure to have downloaded archive description.
 (when (not package-archive-contents)
-  (package-refresh-contents))
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
 
 ;;
 ;; User Package Management
 ;;
 
-;; Define personalized packages and install
-(defun ensure-package-installed (&rest packages)
-  (mapcar
-  (lambda (package)
-  (if (package-installed-p package)
-     nil
-   (if (y-or-n-p (format "Package %s is missing. Install it? " package))
-       (package-install package)
-     package)))
-  packages))
-
-(ensure-package-installed
- ;;'auto-complete
- 'elpy
- 'evil
- 'exec-path-from-shell
- 'flycheck
- 'helm
- 'helm-ag
- 'helm-projectile
- 'projectile
- 'which-key
- 'material-theme
- 'solarized-theme
- 'sublime-themes
- 'zenburn-theme)
-
-;;
-;; Utilities
-;;
-
-;; Grab shell commands because osx
-(when (memq window-system '(mac ns))
+(use-package exec-path-from-shell
+  :ensure t
+  :if window-system
+  :config
   (exec-path-from-shell-initialize))
 
-;; Use VIM keybindings!
-(require 'evil)
-(evil-mode t)
+(use-package evil
+  :ensure t
+  :bind ("C-x e" . evil-mode))
 
-;; Use projectile with helm instead of ido
-(require 'helm-projectile)
-(projectile-global-mode)
-(helm-projectile-on)
+(use-package php-mode
+  :ensure t
+  :mode "\\.php\\'"
+  :interpreter "php")
 
-;; Use helm globally
-(require 'helm-config)
-(helm-mode 1)
+(use-package scala-mode
+  :ensure t
+  :mode "\\.scala\\'"
+  :interpreter "scala")
 
-;; Use which-key and force mini-buffer on the right
-(require 'which-key)
-(which-key-mode t)
-(which-key-setup-side-window-bottom)
+(use-package ensime
+  :ensure t
+  :pin melpa-stable)
 
-;; Turn on auto-complete
-;;(require 'auto-complete-config)
-;;(ac-config-default)
+(use-package helm
+  :ensure t
+  :config
+  (helm-mode 1))
 
-;; Enable python linting/IDE features
-;; - Requires Jedi Flake8 from pip
-(elpy-enable)
+(use-package helm-projectile
+  :ensure t
+  :config
+  (projectile-global-mode)
+  (helm-projectile-on))
 
-;; Disable auto-complete.el on elpy-mode because it conflicts
-;;  with flycheck. Set up flycheck instead of flymake
-;;(add-hook 'elpy-mode-hook (lambda () (auto-complete-mode -1)))
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode t)
+  (which-key-setup-side-window-bottom))
+
+(use-package sublime-themes
+  :ensure t
+  :demand)
 
 ;;
 ;; User Environment Settings
@@ -93,7 +79,7 @@
 
 ;; Set emacs environment based on GUI or terminal use
 (defun setup-gui-env()
-  (load-theme 'solarized-dark t)
+  (load-theme 'brin t)
   (scroll-bar-mode -1)
   (tool-bar-mode -1))
 
@@ -151,17 +137,3 @@
 ;;
 ;; User key bindings
 ;;
-
-;; Toggle evil-mode on/off
-(global-set-key (kbd "C-x e") 'evil-mode)
-
-;;
-;; Strange custom variable land
-;;
-
-(custom-set-variables
- '(elpy-modules
-   (quote
-    (elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-yasnippet elpy-module-sane-defaults))))
-(custom-set-faces
- )
