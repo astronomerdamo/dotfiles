@@ -63,6 +63,9 @@
   (projectile-global-mode)
   (helm-projectile-on))
 
+(use-package vimish-fold
+  :ensure t)
+
 (use-package which-key
   :ensure t
   :config
