@@ -3,7 +3,7 @@
 
 RESET=$reset_color
 
-if [ "$USER" = "Damo" ]; then
+if [ "$USER" = "damo" ]; then
     local RET_STATUS="%(?:%{$fg[green]%}λ:%{$fg[red]%}Λ%s)";
 else
     RET_STATUS="%{$fg[red]%}!!";
@@ -18,5 +18,5 @@ ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}✔%{$RESET%}"
 
 # Final Prompt
 PROMPT='%{$fg[blue]%}%~%{$RESET%} $(git_prompt_info)
-%D{%H:%M} ${RET_STATUS}%{$RESET%} '
+-%j-%{$fg[white]%}%D{%H:%M} ${RET_STATUS}%{$RESET%} '
 RPS1="${return_code}"

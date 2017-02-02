@@ -5,7 +5,7 @@ export ZSH=/Users/Damo/.oh-my-zsh
 ZSH_THEME="orion"
 
 # oh-my-zsh plugins.
-plugins=(gitfast brew)
+plugins=(gitfast)
 
 # Set EDITOR
 export EDITOR='vim'
@@ -16,10 +16,6 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X
 # Spark setup (conflicts with starscream)
 export PYSPARK_PYTHON=python3
 export PYSPARK_DRIVER_PYTHON=ipython
-
-# Python
-export WORKON_HOME=$HOME/.virtualenvs
-source $(brew --prefix)/bin/virtualenvwrapper.sh
 
 # Source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
