@@ -109,3 +109,18 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "m", function()
   f.h = max.h
   win:setFrame(f)
 end)
+
+-- Windowed center half
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "c", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = max.x + (max.w / 4)
+  f.y = max.y
+  f.w = 2 * max.w / 4
+  f.h = max.h
+  win:setFrame(f)
+end)
+
