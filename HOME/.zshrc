@@ -31,10 +31,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Source FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Custom Aliases
-alias brfull='bubu && brew doctor'
-alias clear=" clear"
-alias pwd=" pwd"
-alias exit=" exit"
+# Load Customs
+source $ZSH/custom/zsh_aliases
+source $ZSH/custom/zsh_functions
 
 # GitHub Personal Token
