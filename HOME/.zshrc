@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/Damo/.oh-my-zsh
+export ZSH=/Users/$USER/.oh-my-zsh
 
 # Set name of the theme to load.
 ZSH_THEME="orion"
@@ -13,9 +13,12 @@ export EDITOR='vim'
 # Set path
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin"
 
+# Dev setup
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+
 # Spark setup (conflicts with starscream)
-export PYSPARK_PYTHON=python3
-export PYSPARK_DRIVER_PYTHON=ipython
+#export PYSPARK_PYTHON=python3
+#export PYSPARK_DRIVER_PYTHON=ipython
 
 # Source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
