@@ -3,7 +3,7 @@
 
 RESET=$reset_color
 
-if [ "$USER" = "damo" ]; then
+if [ "$USER" = "damo" ] || [ "$USER" = "damienrobertson" ] || [ "$USER" = "Damo" ]; then
     local RET_STATUS="%(?:%{$fg[green]%}λ:%{$fg[red]%}Λ%s)";
 else
     RET_STATUS="%{$fg[red]%}!!";
