@@ -44,9 +44,12 @@ export GREP_OPTIONS="--color=auto"
 # Set path
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin"
 
+# Dev setup
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+
 # Spark setup (conflicts with starscream)
-export PYSPARK_PYTHON=python3
-export PYSPARK_DRIVER_PYTHON=ipython
+#export PYSPARK_PYTHON=python3
+#export PYSPARK_DRIVER_PYTHON=ipython
 
 # Setup for FZF
 export FZF_DEFAULT_COMMAND='ag -l -g ""'
