@@ -38,6 +38,11 @@
   :ensure t
   :bind ("C-x e" . evil-mode))
 
+(use-package python-mode
+  :ensure t
+  :mode "\\.py\\'"
+  :interpreter "python")
+
 (use-package php-mode
   :ensure t
   :mode "\\.php\\'"
