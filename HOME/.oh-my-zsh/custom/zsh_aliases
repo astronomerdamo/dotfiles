@@ -8,3 +8,7 @@ alias exit=" exit"
 alias bubo="brew update; brew outdated"
 alias bubc="brew upgrade; brew cleanup -s --force"
 alias brfull="bubo; bubc; brew doctor"
+
+#Shopify
+alias cluster="PYTHON_ENV=remote_development"
+
