@@ -81,6 +81,11 @@
   :ensure t
   :demand)
 
+(use-package yaml-mode
+  :ensure t
+  :mode "\\.ya?ml\\'"
+  :interpreter "ya?ml")
+
 ;;
 ;; User Environment Settings
 ;;
