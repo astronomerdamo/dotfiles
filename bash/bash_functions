@@ -1,4 +1,16 @@
+#! bin/bash
+
 # Auto colourize jq json parser
 function jql() {
 	jq -C '.' <$1 | less -R
+}
+
+# Get active git branch
+function gabf() {
+	git branch | grep '* ' | cut -d ' ' -f 2
+}
+
+# Get any git branch
+function gbf() {
+	git branch | grep "$1"
 }
