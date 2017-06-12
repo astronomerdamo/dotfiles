@@ -13,6 +13,7 @@ alias gl="git pull"
 alias gb="git branch"
 alias gpo="git push origin"
 alias grb="git rebase"
+alias grbm="git rebase master"
 alias gss="git status -s"
 alias gst="git status"
 
