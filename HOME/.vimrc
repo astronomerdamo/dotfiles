@@ -8,7 +8,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
-Plug 'nvie/vim-flake8', { 'for': 'python' }
+Plug 'vim-syntastic/syntastic', { 'for': 'python' }
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " themes
@@ -140,5 +140,5 @@ set bg=dark
 if has("gui_running")
 	colorscheme onedark
 else
-	colorscheme default
+	colorscheme zenburn
 endif
