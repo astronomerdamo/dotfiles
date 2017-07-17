@@ -3,12 +3,14 @@ set nocompatible
 
 " define plugins
 call plug#begin('~/.vim/plugged')
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'itchyny/lightline.vim'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
-Plug 'vim-syntastic/syntastic', { 'for': 'python' }
+Plug 'w0rp/ale', { 'for': 'python' }
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " themes
@@ -19,18 +21,10 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'jdkanani/vim-material-theme'
 call plug#end()
 
-" set lightline appearance
-set laststatus=2
-let g:lightline = {
-    \ 'colorscheme': 'default',
-    \ 'active': {
-    \   'left': [ [ 'mode' ],
-    \             [ 'fugitive', 'filename' ] ]
-    \ },
-    \ 'component': {'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'},
-    \ 'component_visible_condition': {'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'}
-    \ }
+" airline settings
+let g:airline#extensions#tabline#enabled = 1
 
+" ALE Linting options
 
 " turn syntax on
 syntax on
@@ -85,7 +79,7 @@ set incsearch
 set splitbelow
 set splitright
 
-" allow visually selected test to be searchable via `//`
+" allow visually selected text to be searchable via `//`
 vnoremap // y/<C-R>"<CR>
 
 " set leader key to space
@@ -108,15 +102,13 @@ nnoremap <leader>o <C-w>o
 " remove searched word highlighting
 nnoremap <leader>nh :noh<CR>
 
-" Use leader for common CtrlP plugin commands
-nnoremap <leader>t :CtrlP<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
+" Use leader for common FZF plugin commands
+nnoremap <leader>t :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>f :Ag<CR>
 
 " NERDtree options
 nnoremap <leader>nt :NERDTreeToggle<CR>
-
-" Flake8 my python
-nnoremap <leader>f8 :call Flake8()<CR>
 
 " enable code folding
 set foldmethod=indent
@@ -139,6 +131,8 @@ set t_Co=256
 set bg=dark
 if has("gui_running")
 	colorscheme onedark
+	let g:airline_theme='onedark'
 else
 	colorscheme zenburn
+	let g:airline_theme='zenburn'
 endif
