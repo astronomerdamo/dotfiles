@@ -25,6 +25,7 @@ call plug#end()
 let g:airline#extensions#tabline#enabled = 1
 
 " ALE Linting options
+let g:ale_sign_column_always = 1
 
 " turn syntax on
 syntax on
