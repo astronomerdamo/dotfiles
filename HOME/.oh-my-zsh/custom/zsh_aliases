@@ -3,6 +3,9 @@ alias bubo="brew update; brew outdated"
 alias bubc="brew upgrade; brew cleanup -s --force"
 alias brfull="bubo; bubc; brew doctor"
 
+# VSCode
+alias vscode="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
+
 # General
 alias rm="rm -i"
 alias clear=" clear"
