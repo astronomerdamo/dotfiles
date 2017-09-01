@@ -12,6 +12,6 @@ alias clear=" clear"
 alias pwd=" pwd"
 alias exit=" exit"
 
-#Shopify
-alias cluster="PYTHON_ENV=remote_development"
+# Git
+alias ggpp="git push origin +HEAD"
 
