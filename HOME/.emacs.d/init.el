@@ -86,6 +86,17 @@
   :mode "\\.ya?ml\\'"
   :interpreter "ya?ml")
 
+(use-package flycheck
+  :ensure t
+  :init
+  (global-flycheck-mode t)
+  :config
+  (setq flycheck-pylintrc "pylintrc")
+  (setq flycheck-python-pylint-executable "~/.pyenv/virtualenvs/starscream/2.7.11/bin/pylint")
+  (setq flycheck-disabled-checkers '(python-flake8)))
+
+(use-package flymake :disabled t)
+
 ;;
 ;; User Environment Settings
 ;;
@@ -150,3 +161,5 @@
 ;;
 ;; User key bindings
 ;;
+
+;;; init.el ends here
