@@ -92,8 +92,11 @@
   (global-flycheck-mode t)
   :config
   (setq flycheck-pylintrc "pylintrc")
-  (setq flycheck-python-pylint-executable "~/.pyenv/virtualenvs/starscream/2.7.11/bin/pylint")
-  (setq flycheck-disabled-checkers '(python-flake8)))
+  (setq-default flycheck-disabled-checkers '(python-flake8))
+  ;;(defcustom pylint-options (pylint-options '("--output-format=parseable")))
+  ;;(flycheck-define-checker python-pylint
+  ;;  :command ("pylint" "--output-format=parseable" source))
+  )
 
 (use-package flymake :disabled t)
 
