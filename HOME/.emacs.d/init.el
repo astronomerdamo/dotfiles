@@ -102,6 +102,13 @@
 (use-package flymake
   :disabled t)
 
+(use-package org
+  :ensure org-plus-contrib
+  :mode ("\\.org\\'" . org-mode)
+  :config
+  (progn
+    (setq org-todo-keywords (quote ((sequence "TODO" "BLOCKED" "DONE"))))))
+
 ;;
 ;; User Environment Settings
 ;;
