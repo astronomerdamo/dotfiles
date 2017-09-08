@@ -89,16 +89,15 @@
 (use-package flycheck
   :ensure t
   :init
-  (global-flycheck-mode t)
+  (global-flycheck-mode)
   :config
-  (setq flycheck-pylintrc "pylintrc")
-  (setq-default flycheck-disabled-checkers '(python-flake8))
-  ;;(defcustom pylint-options (pylint-options '("--output-format=parseable")))
-  ;;(flycheck-define-checker python-pylint
-  ;;  :command ("pylint" "--output-format=parseable" source))
-  )
-
-(use-package flymake :disabled t)
+  (progn
+    (add-to-list 'flycheck-disabled-checkers 'python-flake8)
+    (add-hook 'python-mode-hook (lambda () (flycheck-select-checker 'python-pylint)))
+    ;; Dirty hack to get around starscream pylintrc colour code escapes
+    ;; Copy repo pylintrc file to tmp and change:
+    ;;   output-format=colorized -> output-format=parseable
+    (setq flycheck-pylintrc "tmp/pylintrc")))
 
 ;;
 ;; User Environment Settings
