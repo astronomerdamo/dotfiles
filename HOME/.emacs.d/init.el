@@ -99,6 +99,9 @@
     ;;   output-format=colorized -> output-format=parseable
     (setq flycheck-pylintrc "tmp/pylintrc")))
 
+(use-package flymake
+  :disabled t)
+
 ;;
 ;; User Environment Settings
 ;;
