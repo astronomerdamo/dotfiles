@@ -107,7 +107,7 @@
   :mode ("\\.org\\'" . org-mode)
   :config
   (progn
-    (setq org-todo-keywords (quote ((sequence "TODO" "BLOCKED" "DONE"))))))
+    (setq org-todo-keywords '((sequence "TODO(t)" "BLOCKED(b)" "WAITING(w)" "|" "CANCELLED(c)" "DONE(d)")))))
 
 ;;
 ;; User Environment Settings
