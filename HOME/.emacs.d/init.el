@@ -1,10 +1,9 @@
-;;
-;; Simple emacs config
-;;
+;;; package --- Summary
+;;; Commentary:
 
-;;
+;;; Code:
+
 ;; Package Management
-;;
 
 (require 'package)
 
@@ -24,9 +23,7 @@
   (package-install 'use-package))
 (require 'use-package)
 
-;;
 ;; User Package Management
-;;
 
 (use-package exec-path-from-shell
   :ensure t
@@ -109,9 +106,7 @@
   (progn
     (setq org-todo-keywords '((sequence "TODO(t)" "BLOCKED(b)" "WAITING(w)" "|" "CANCELLED(c)" "DONE(d)")))))
 
-;;
 ;; User Environment Settings
-;;
 
 ;; Set emacs environment based on GUI or terminal use
 (defun setup-gui-env()
@@ -170,8 +165,6 @@
 (setq mouse-wheel-follow-mouse t)
 (setq scroll-step 1)
 
-;;
 ;; User key bindings
-;;
 
 ;;; init.el ends here
