@@ -18,11 +18,19 @@
 ;; Activate installed packages
 (package-initialize)
 
-;; Make sure to have downloaded archive description.
-(when (not package-archive-contents)
-  (package-refresh-contents)
+;; Configure use-package
+(unless (package-installed-p 'use-package)
   (package-install 'use-package))
-(require 'use-package)
+
+(eval-when-compile
+  (require 'use-package))
+
+(setq use-package-verbose t)
+(setq use-package-always-ensure t)
+
+(use-package auto-compile
+  :config (auto-compile-on-load-mode))
+(setq load-prefer-newer t)
 
 ;; User Package Management
 
