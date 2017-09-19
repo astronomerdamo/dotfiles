@@ -1,4 +1,5 @@
-;;; package --- Summary
+;;; init.el --- Simple Emacs configuration
+
 ;;; Commentary:
 
 ;;; Code:
