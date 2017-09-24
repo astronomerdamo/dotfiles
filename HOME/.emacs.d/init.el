@@ -130,7 +130,7 @@
 
 (defun setup-term-env()
   (menu-bar-mode -1)
-  (load-theme 'solarized-dark t)
+  (load-theme 'brin t)
   (set-frame-parameter nil 'background-mode 'dark)
   (set-terminal-parameter nil 'background-mode 'dark)
   (custom-set-variables
