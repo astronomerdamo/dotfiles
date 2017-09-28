@@ -115,7 +115,7 @@
   :mode ("\\.org\\'" . org-mode)
   :config
   (progn
-    (setq org-todo-keywords '((sequence "TODO(t)" "IN PROGRESS(p)" "BLOCKED(b)" "WAITING(w)" "|" "CANCELLED(c)" "DONE(d)")))
+    (setq org-todo-keywords '((sequence "TODO(t)" "IN PROGRESS(p)" "BLOCKED(b)" "WAITING(w)" "ONGOING(g)" "|" "CANCELLED(c)" "DONE(d)")))
     (setq org-log-done t)
     (setq org-agenda-files '("~/Sync/Shopify/org/roadmapping/risk-roadmapping.org"
 			     "~/Sync/Shopify/org/roadmapping/logistics-roadmapping.org"))))
