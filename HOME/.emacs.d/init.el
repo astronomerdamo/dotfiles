@@ -96,8 +96,6 @@
   :ensure t
   :init
   (global-flycheck-mode)
-  :bind
-  ("C-c a" . org-agenda)
   :config
   (progn
     (add-to-list 'flycheck-disabled-checkers 'python-flake8)
@@ -113,6 +111,8 @@
 (use-package org
   :ensure org-plus-contrib
   :mode ("\\.org\\'" . org-mode)
+  :bind
+  ("C-c a" . org-agenda)
   :config
   (progn
     (setq org-todo-keywords '((sequence "TODO(t)" "IN PROGRESS(p)" "BLOCKED(b)" "WAITING(w)" "|" "CANCELLED(c)" "DONE(d)")))
