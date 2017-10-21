@@ -25,7 +25,6 @@
 
 (use-package exec-path-from-shell
   :ensure t
-  :if window-system
   :config
   (exec-path-from-shell-initialize))
 
@@ -134,26 +133,19 @@
                            "~/Sync/Shopify/org/roadmapping/logistics.org"
                            "~/Sync/Shopify/org/roadmapping/shipping.org"
                            "~/Sync/Shopify/org/roadmapping/general.org")))
+
+(use-package doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-one t)
   (scroll-bar-mode -1)
   (tool-bar-mode -1))
 
-(defun setup-term-env()
-  (menu-bar-mode -1)
-  (load-theme 'brin t)
-  (set-frame-parameter nil 'background-mode 'dark)
-  (set-terminal-parameter nil 'background-mode 'dark)
-  (custom-set-variables
-    '(solarized-termcolors 256))
-  (custom-set-faces
-    '(default ((t (:background nil))))))
 (use-package lua-mode
   :ensure t
   :mode "\\.lua\\'"
   :interpreter "Lua")
 
-(if window-system
-    (setup-gui-env)
-  (setup-term-env))
 (use-package company
   :ensure t
   :diminish company-mode
@@ -171,6 +163,7 @@
   :ensure t
   :pin melpa-stable
   :bind ("C-x g" . magit-status))
+
 ;; Display column number along with line number
 (column-number-mode t)
 
