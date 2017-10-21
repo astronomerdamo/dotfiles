@@ -133,20 +133,16 @@
 (use-package org
   :ensure org-plus-contrib
   :mode ("\\.org\\'" . org-mode)
-  :bind
-  ("C-c a" . org-agenda)
+  :bind (("C-c o a" . org-agenda)
+	 ("C-c o l" . org-store-link))
   :config
-  (progn
-    (setq org-todo-keywords '((sequence "TODO(t)" "IN PROGRESS(p)" "BLOCKED(b)" "WAITING(w)" "|" "CANCELLED(c)" "DONE(d)")))
-    (setq org-log-done t)
-    (setq org-agenda-files '("~/Sync/Shopify/org/roadmapping/risk-roadmapping.org"
-			     "~/Sync/Shopify/org/roadmapping/logistics-roadmapping.org"))))
-
-;; User Environment Settings
-
-;; Set emacs environment based on GUI or terminal use
-(defun setup-gui-env()
-  (load-theme 'brin t)
+  (setq org-todo-keywords '((sequence "TODO(t)" "IN PROGRESS(p)" "BLOCKED(b)" "WAITING(w)" "|" "CANCELLED(c)" "DONE(d)"))
+        org-log-done t
+        org-hide-leading-stars t
+        org-agenda-files '("~/Sync/Shopify/org/roadmapping/risk.org"
+                           "~/Sync/Shopify/org/roadmapping/logistics.org"
+                           "~/Sync/Shopify/org/roadmapping/shipping.org"
+                           "~/Sync/Shopify/org/roadmapping/general.org")))
   (scroll-bar-mode -1)
   (tool-bar-mode -1))
 
