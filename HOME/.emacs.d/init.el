@@ -40,7 +40,8 @@
 
 (use-package evil
   :ensure t
-  :bind ("C-x e" . evil-mode))
+  :defer t
+  :bind ("C-c e" . evil-mode))
 
 (use-package python-mode
   :ensure t
