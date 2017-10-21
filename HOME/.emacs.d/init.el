@@ -176,6 +176,10 @@
   :config
   (global-undo-tree-mode))
 
+(use-package magit
+  :ensure t
+  :pin melpa-stable
+  :bind ("C-x g" . magit-status))
 ;; Display column number along with line number
 (column-number-mode t)
 
