@@ -155,10 +155,26 @@
     '(solarized-termcolors 256))
   (custom-set-faces
     '(default ((t (:background nil))))))
+(use-package lua-mode
+  :ensure t
+  :mode "\\.lua\\'"
+  :interpreter "Lua")
 
 (if window-system
     (setup-gui-env)
   (setup-term-env))
+(use-package company
+  :ensure t
+  :diminish company-mode
+  :defer t
+  :config
+  (global-company-mode))
+
+(use-package undo-tree
+  :ensure t
+  :diminish undo-tree-mode
+  :config
+  (global-undo-tree-mode))
 
 ;; Display column number along with line number
 (column-number-mode t)
