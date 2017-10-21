@@ -92,7 +92,8 @@
   :pin melpa-stable)
 
 (use-package vimish-fold
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package which-key
   :ensure t
