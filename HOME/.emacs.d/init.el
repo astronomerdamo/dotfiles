@@ -23,15 +23,6 @@
 (require 'diminish)
 (require 'bind-key)
 
-(setq use-package-verbose t)
-(setq use-package-always-ensure t)
-
-(use-package auto-compile
-  :config (auto-compile-on-load-mode))
-(setq load-prefer-newer t)
-
-;; User Package Management
-
 (use-package exec-path-from-shell
   :ensure t
   :if window-system
