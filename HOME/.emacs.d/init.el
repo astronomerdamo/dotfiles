@@ -75,7 +75,7 @@
 (use-package python-mode
   :ensure t
   :mode "\\.py\\'"
-  :interpreter "python")
+  :interpreter "Python")
 
 (use-package php-mode
   :ensure t
@@ -85,7 +85,7 @@
 (use-package scala-mode
   :ensure t
   :mode "\\.scala\\'"
-  :interpreter "scala")
+  :interpreter "Scala")
 
 (use-package ensime
   :ensure t
@@ -107,7 +107,7 @@
 (use-package yaml-mode
   :ensure t
   :mode "\\.ya?ml\\'"
-  :interpreter "ya?ml")
+  :interpreter "YAML")
 
 (use-package flycheck
   :ensure t
