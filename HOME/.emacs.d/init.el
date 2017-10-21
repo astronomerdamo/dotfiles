@@ -96,13 +96,15 @@
 
 (use-package which-key
   :ensure t
+  :diminish which-key-mode
+  :init (setq which-key-idle-delay 1.5)
   :config
-  (which-key-mode t)
-  (which-key-setup-side-window-bottom))
-
-(use-package sublime-themes
-  :ensure t
-  :demand)
+  (which-key-mode)
+  (which-key-setup-side-window-bottom)
+  (which-key-declare-prefixes
+    "C-c o" "org"
+    "C-c p" "projectile"
+    "C-c s" "swiper"))
 
 (use-package yaml-mode
   :ensure t
