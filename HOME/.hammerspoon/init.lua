@@ -179,3 +179,23 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "s", function()
   f.h = max.h / 2
   win:setFrame(f)
 end)
+
+-- Windowed center square
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "x", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  if max.w > max.h then
+     f.x = (max.w - max.h) / 2
+     f.y = 0
+  else
+     f.x = 0
+     f.y = (max.h - max.w) / 2
+  end
+
+  f.w = math.min(max.w, max.h)
+  f.h = math.min(max.w, max.h)
+  win:setFrame(f)
+end)
