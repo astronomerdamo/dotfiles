@@ -43,6 +43,35 @@
   :defer t
   :bind ("C-c e" . evil-mode))
 
+(use-package counsel
+  :ensure t
+  :demand
+  :diminish ivy-mode
+  :config
+  (ivy-mode t)
+  (setq ivy-use-virtual-buffers t
+        ivy-display-style "fancy"))
+
+(use-package swiper
+  :ensure t
+  :bind (("C-s"       . swiper)
+	 ("C-r"       . swiper)
+	 ("C-c s b"   . swiper-all)
+	 ("C-c s r"   . swiper-query-replace)
+	 ("C-c s R"   . swiper-all-query-replace)))
+
+(use-package counsel-projectile
+  :ensure t
+  :defer t
+  :bind (("C-c p SPC" . counsel-projectile)
+	 ("C-c p p"   . counsel-projectile-switch-project)
+	 ("C-c p f"   . counsel-projectile-find-file)
+	 ("C-c p b"   . counsel-projectile-switch-to-buffer)
+	 ("C-c p s s" . counsel-projectile-ag)
+	 ("C-c p d"   . counsel-projectile-find-dir))
+  :config
+  (counsel-projectile-on))
+
 (use-package python-mode
   :ensure t
   :mode "\\.py\\'"
@@ -61,17 +90,6 @@
 (use-package ensime
   :ensure t
   :pin melpa-stable)
-
-(use-package helm
-  :ensure t
-  :config
-  (helm-mode 1))
-
-(use-package helm-projectile
-  :ensure t
-  :config
-  (projectile-global-mode)
-  (helm-projectile-on))
 
 (use-package vimish-fold
   :ensure t)
