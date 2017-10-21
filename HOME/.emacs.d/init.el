@@ -213,6 +213,4 @@
 (setq mouse-wheel-follow-mouse t)
 (setq scroll-step 1)
 
-;; User key bindings
-
 ;;; init.el ends here
