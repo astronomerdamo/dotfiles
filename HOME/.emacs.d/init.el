@@ -164,6 +164,9 @@
   :pin melpa-stable
   :bind ("C-x g" . magit-status))
 
+(use-package smartparens
+  :ensure t)
+
 ;; Display column number along with line number
 (column-number-mode t)
 
