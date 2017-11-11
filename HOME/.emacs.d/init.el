@@ -169,6 +169,11 @@
 (use-package smartparens
   :ensure t)
 
+(use-package multiple-cursors
+  :ensure t
+  :bind(("C->" . mc/mark-next-like-this)
+	("C-<" . mc/mark-previous-like-this)))
+
 ;; Display column number along with line number
 (column-number-mode t)
 
