@@ -10,7 +10,7 @@ alias pwd=" pwd"
 alias exit=" exit"
 
 # Git
-alias ggpp="git push origin +HEAD"
+alias ggpush+='git push origin $(git_current_branch) --force-with-lease'
 
 # Shopify
 alias glup='git pull && dev up'
