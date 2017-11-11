@@ -124,6 +124,7 @@
   :bind (("C-c o a" . org-agenda)
 	 ("C-c o l" . org-store-link))
   :config
+  (set-face-attribute 'org-level-1 nil :height 1.0)
   (setq org-todo-keywords '((sequence "TODO(t)" "IN PROGRESS(p)" "BLOCKED(b)" "WAITING(w)" "|" "CANCELLED(c)" "DONE(d)"))
         org-log-done t
         org-hide-leading-stars t
@@ -135,9 +136,12 @@
 (use-package doom-themes
   :ensure t
   :config
+  (doom-themes-org-config)
   (load-theme 'doom-one t)
   (scroll-bar-mode -1)
-  (tool-bar-mode -1))
+  (tool-bar-mode -1)
+  (setq doom-themes-enable-bold t
+	doom-themes-enable-italic t))
 
 (use-package lua-mode
   :ensure t
