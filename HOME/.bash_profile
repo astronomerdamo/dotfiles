@@ -5,7 +5,7 @@ export EDITOR="vim"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin"
 
 # Larger bash history 2^16
-export HISTSIZE=65536
+export HISTSIZE=-1
 export HISTFILE=~/.bash_history
 export HISTFILESIZE=$HISTSIZE
 export HISTCONTROL=ignoreboth
