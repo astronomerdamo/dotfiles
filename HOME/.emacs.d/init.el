@@ -151,9 +151,7 @@
 (use-package company
   :ensure t
   :diminish company-mode
-  :defer t
-  :config
-  (global-company-mode))
+  :defer t)
 
 (use-package undo-tree
   :ensure t
