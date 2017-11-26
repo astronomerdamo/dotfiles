@@ -7,10 +7,6 @@ plugins=(gitfast)
 # Dev setup
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
-# Spark setup (conflicts with starscream)
-#export PYSPARK_PYTHON=python3
-#export PYSPARK_DRIVER_PYTHON=ipython
-
 # Source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
