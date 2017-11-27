@@ -101,6 +101,9 @@ set incsearch
 set splitbelow
 set splitright
 
+" set ctags
+set tags=./tags,tags,tmp/tags;
+
 " allow visually selected text to be searchable via `//`
 vnoremap // y/<C-R>"<CR>
 

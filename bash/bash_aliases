@@ -22,3 +22,5 @@ alias bubo="brew update; brew outdated"
 alias bubc="brew upgrade; brew cleanup -s --force"
 alias brfull="bubo; bubc; brew doctor"
 
+# Tags
+alias ssctags="git ls-files starscream shopify config | /usr/local/opt/universal-ctags/bin/ctags -f tmp/tags --tag-relative=yes --extras=+f -L-"
