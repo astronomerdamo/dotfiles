@@ -23,7 +23,7 @@ export MANPAGER="less -X"
 export GREP_OPTIONS="--color=auto"
 
 # Setup for FZF
-export FZF_DEFAULT_COMMAND='ag -l -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --smart-case --glob "!.git/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Source bashrc
