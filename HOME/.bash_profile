@@ -3,6 +3,8 @@ export EDITOR="vim"
 
 # Set path
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin"
+# Set path for Rust
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Larger bash history 2^16
 export HISTSIZE=-1

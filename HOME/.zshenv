@@ -3,6 +3,8 @@ export ZSH=/Users/$USER/.oh-my-zsh
 
 # Set path
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin"
+# Set path for Rust
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Set EDITOR
 export EDITOR='vim'
