@@ -3,20 +3,6 @@ alias l="ls -hlAG"
 alias ls="ls -G"
 alias rm="rm -i"
 
-# Git
-alias ga="git add"
-alias gcm="git checkout master"
-alias gco="git checkout"
-alias gc="git commit -v"
-alias gd="git diff"
-alias gl="git pull"
-alias gb="git branch"
-alias gpo="git push origin"
-alias grb="git rebase"
-alias grbm="git rebase master"
-alias gss="git status -s"
-alias gst="git status"
-
 # Brew
 alias bubo="brew update; brew outdated"
 alias bubc="brew upgrade; brew cleanup -s --force"
