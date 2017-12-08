@@ -11,3 +11,8 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status

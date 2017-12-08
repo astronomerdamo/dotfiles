@@ -10,8 +10,9 @@ alias pwd=" pwd"
 alias exit=" exit"
 
 # Git
+alias ggpush='git push origin $(git_current_branch)'
 alias ggpush+='git push origin $(git_current_branch) --force-with-lease'
-alias ssctags="git ls-files starscream shopify config | /usr/local/opt/universal-ctags/bin/ctags -f tmp/tags --tag-relative=yes --extras=+f -L-"
 
 # Shopify
 alias glup='git pull && dev up'
+alias ssctags="git ls-files starscream shopify config | /usr/local/opt/universal-ctags/bin/ctags -f tmp/tags --tag-relative=yes --extras=+f -L-"
