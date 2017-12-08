@@ -17,6 +17,15 @@ for bash_file in $(ls ${bash_filepath}); do
 	fi
 done
 
+# Unlimited bash history
+export HISTSIZE=-1
+export HISTFILE=~/.bash_history
+export HISTFILESIZE=$HISTSIZE
+export HISTCONTROL=ignoreboth
+
+# Disregard following commands from history
+export HISTIGNORE="exit:clear:history:ls:la:ll"
+
 # Append history when shell exists
 shopt -s histappend
 

@@ -6,15 +6,6 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X
 # Set path for Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Larger bash history 2^16
-export HISTSIZE=-1
-export HISTFILE=~/.bash_history
-export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL=ignoreboth
-
-# Disregard following commands from history
-export HISTIGNORE="exit:clear:history:ls:la:ll"
-
 # Highlight section titles in manual pages
 export LESS_TERMCAP_md=$'\e[0;33m'
 
