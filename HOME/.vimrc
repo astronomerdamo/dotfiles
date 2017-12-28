@@ -10,9 +10,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
-Plug 'w0rp/ale', { 'for': 'python' }
+Plug 'w0rp/ale', { 'for': ['python', 'rust'] }
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 " themes
 Plug 'altercation/vim-colors-solarized'
 Plug 'joshdick/onedark.vim'
@@ -25,13 +26,16 @@ call plug#end()
 " airline settings
 let g:airline#extensions#tabline#enabled = 1
 
-" ALE Linting options
+" ALE Linting options display and usability options
 let g:ale_sign_column_always = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 0
 " let g:ale_open_list = 0
 " let g:ale_keep_list_window_open = 0
+
+" ALE Rust linting
+let g:ale_linters = {'rust': ['cargo']}
 
 " turn syntax on
 syntax on
