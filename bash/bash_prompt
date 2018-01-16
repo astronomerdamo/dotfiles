@@ -52,7 +52,7 @@ function get_background_jobs(){
 }
 
 function set_bash_prompt(){
-	PS1="${BLUE}\w $(parse_git_branch)\n-$(get_background_jobs)-${WHITE}\A ${GREEN}λ${RESET} "
+	PS1="${BLUE}\w $(parse_git_branch)\n-$(get_background_jobs)-\A ${GREEN}λ${RESET} "
 }
 
 PROMPT_COMMAND=set_bash_prompt
