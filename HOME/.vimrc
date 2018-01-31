@@ -5,30 +5,24 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
-Plug 'w0rp/ale', { 'for': ['python', 'rust'] }
+Plug 'w0rp/ale', { 'for': ['python', 'rust', 'haskell', 'scala'] }
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 " themes
 Plug 'altercation/vim-colors-solarized'
-Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
 Plug 'jnurmine/Zenburn'
 Plug 'rakr/vim-two-firewatch'
 Plug 'jdkanani/vim-material-theme'
 Plug 'w0ng/vim-hybrid'
 call plug#end()
 
-" airline settings
-let g:airline#extensions#tabline#enabled = 1
-
 " ALE Linting options display and usability options
 let g:ale_sign_column_always = 1
-let g:airline#extensions#ale#enabled = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 0
 " let g:ale_open_list = 0
@@ -163,7 +157,26 @@ let g:hybrid_custom_term_colors = 1
 " let g:hybrid_reduced_contrast = 1
 set bg=dark
 colorscheme hybrid
-let g:airline_theme='hybrid'
 
 " clear the vim gutter colour
 highlight clear SignColumn
+
+" statusline formatting
+set laststatus=2
+set statusline=
+set statusline+=%1*\[%n\]
+set statusline+=\ 
+set statusline+=%2*%f
+set statusline+=%m
+set statusline+=%=
+set statusline+=%{&fileformat}
+set statusline+=\ 
+set statusline+=\[
+set statusline+=%l
+set statusline+=\:
+set statusline+=%c
+set statusline+=\:
+set statusline+=%P
+set statusline+=\]
+hi User1 ctermbg=black ctermfg=red   guibg=black guifg=red
+hi User2 ctermbg=black ctermfg=white guibg=black guifg=white
