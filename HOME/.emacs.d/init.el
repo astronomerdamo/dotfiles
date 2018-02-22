@@ -20,7 +20,6 @@
 
 (eval-when-compile
   (require 'use-package))
-(require 'diminish)
 (require 'bind-key)
 
 (use-package exec-path-from-shell
@@ -58,9 +57,7 @@
 	 ("C-c p f"   . counsel-projectile-find-file)
 	 ("C-c p b"   . counsel-projectile-switch-to-buffer)
 	 ("C-c p s s" . counsel-projectile-ag)
-	 ("C-c p d"   . counsel-projectile-find-dir))
-  :config
-  (counsel-projectile-on))
+	 ("C-c p d"   . counsel-projectile-find-dir)))
 
 (use-package python-mode
   :ensure t
