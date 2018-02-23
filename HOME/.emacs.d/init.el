@@ -56,27 +56,8 @@
 	 ("C-c p p"   . counsel-projectile-switch-project)
 	 ("C-c p f"   . counsel-projectile-find-file)
 	 ("C-c p b"   . counsel-projectile-switch-to-buffer)
-	 ("C-c p s s" . counsel-projectile-ag)
+	 ("C-c p s s" . counsel-projectile-rg)
 	 ("C-c p d"   . counsel-projectile-find-dir)))
-
-(use-package python-mode
-  :ensure t
-  :mode "\\.py\\'"
-  :interpreter "Python")
-
-(use-package php-mode
-  :ensure t
-  :mode "\\.php\\'"
-  :interpreter "php")
-
-(use-package scala-mode
-  :ensure t
-  :mode "\\.scala\\'"
-  :interpreter "Scala")
-
-(use-package ensime
-  :ensure t
-  :pin melpa-stable)
 
 (use-package vimish-fold
   :ensure t
@@ -94,11 +75,6 @@
     "C-c p" "projectile"
     "C-c s" "swiper"))
 
-(use-package yaml-mode
-  :ensure t
-  :mode "\\.ya?ml\\'"
-  :interpreter "YAML")
-
 (use-package flycheck
   :ensure t
   :diminish flycheck-mode
@@ -107,10 +83,10 @@
   (setq flycheck-emacs-lisp-load-path 'inherit)
   (progn
     (add-to-list 'flycheck-disabled-checkers 'python-flake8)
-    (add-hook 'python-mode-hook (lambda () (flycheck-select-checker 'python-pylint)))
+    ;; (add-hook 'python-mode-hook (lambda () (flycheck-select-checker 'python-pylint)))
     ;; module: `starscream_list` breaks flycheck, remove from pylintrc
-    ;; Try setting python interpretter to virtualenv
-    (setq flycheck-pylintrc "tmp/pylintrc")))
+    (add-hook 'python-mode-hook (lambda () (pyvenv-mode 1)))
+    (setq flycheck-pylintrc "pylintrc")))
 
 (use-package flymake
   :disabled t)
@@ -125,25 +101,20 @@
   (setq org-todo-keywords '((sequence "TODO(t)" "IN PROGRESS(p)" "BLOCKED(b)" "WAITING(w)" "|" "CANCELLED(c)" "DONE(d)"))
         org-log-done t
         org-hide-leading-stars t
-        org-agenda-files '("~/Sync/Shopify/org/roadmapping/risk.org"
-                           "~/Sync/Shopify/org/roadmapping/logistics.org"
-                           "~/Sync/Shopify/org/roadmapping/shipping.org"
-                           "~/Sync/Shopify/org/roadmapping/general.org")))
+        org-agenda-files '("~/Sync/Shopify/org/todos/inventory.org"
+			   "~/Sync/Shopify/org/todos/fulfillments.org"
+			   "~/Sync/Shopify/org/todos/orders.org"
+                           "~/Sync/Shopify/org/todos/general.org")))
 
 (use-package doom-themes
   :ensure t
   :config
   (doom-themes-org-config)
-  (load-theme 'doom-one t)
+  (load-theme 'doom-spacegrey t)
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
   (setq doom-themes-enable-bold t
 	doom-themes-enable-italic t))
-
-(use-package lua-mode
-  :ensure t
-  :mode "\\.lua\\'"
-  :interpreter "Lua")
 
 (use-package company
   :ensure t
@@ -168,6 +139,40 @@
   :ensure t
   :bind(("C->" . mc/mark-next-like-this)
 	("C-<" . mc/mark-previous-like-this)))
+
+;; Language specific modes
+
+(use-package lua-mode
+  :ensure t
+  :mode "\\.lua\\'"
+  :interpreter "Lua")
+
+(use-package php-mode
+  :ensure t
+  :mode "\\.php\\'"
+  :interpreter "php")
+
+(use-package python-mode
+  :ensure t
+  :mode "\\.py\\'"
+  :interpreter "Python")
+
+(use-package pyvenv
+  :ensure t)
+
+(use-package scala-mode
+  :ensure t
+  :mode "\\.scala\\'"
+  :interpreter "Scala")
+
+(use-package ensime
+  :ensure t
+  :pin melpa-stable)
+
+(use-package yaml-mode
+  :ensure t
+  :mode "\\.ya?ml\\'"
+  :interpreter "YAML")
 
 ;; Display column number along with line number
 (column-number-mode t)
