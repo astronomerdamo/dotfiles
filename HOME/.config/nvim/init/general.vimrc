@@ -22,6 +22,9 @@ set ruler
 " always show two lines above an below cursor
 set scrolloff=2
 
+" allow mouse movement and selection
+set mouse=a
+
 " turn line number on with relative line numbers from cursor
 set number
 
@@ -34,9 +37,15 @@ set tabstop=4
 " set number of visual spaces per TAB while editing
 set softtabstop=4
 
+" turn on tab completion menu
+set wildmenu
+
 " open splits to the right and below of current view
 set splitbelow
 set splitright
+
+" set ctags
+set tags=./tags,tags,tmp/tags;
 
 " allow visually selected text to be searchable via `//`
 vnoremap // y/<C-R>"<CR>
@@ -56,7 +65,6 @@ let g:hybrid_custom_term_colors = 1
 " let g:hybrid_reduced_contrast = 1
 set bg=dark
 colorscheme hybrid
-let g:airline_theme='hybrid'
 
 " clear the vim gutter colour
 highlight clear SignColumn
