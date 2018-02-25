@@ -142,6 +142,11 @@
 
 ;; Language specific modes
 
+(use-package haskell-mode
+  :ensure t
+  :mode "\\.hs\\'"
+  :interpreter "Haskell")
+
 (use-package lua-mode
   :ensure t
   :mode "\\.lua\\'"
@@ -159,6 +164,11 @@
 
 (use-package pyvenv
   :ensure t)
+
+(use-package rust-mode
+  :ensure t
+  :mode "\\.rs\\'"
+  :interpreter "Rust")
 
 (use-package scala-mode
   :ensure t
