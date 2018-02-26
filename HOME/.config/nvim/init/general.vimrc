@@ -37,6 +37,9 @@ set tabstop=4
 " set number of visual spaces per TAB while editing
 set softtabstop=4
 
+" Timeout for escape sequences
+set ttimeoutlen=0
+
 " turn on tab completion menu
 set wildmenu
 
