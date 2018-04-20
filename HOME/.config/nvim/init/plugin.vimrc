@@ -2,6 +2,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 " themes
+Plug 'chriskempson/base16-vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'rakr/vim-one'
 Plug 'jnurmine/Zenburn'

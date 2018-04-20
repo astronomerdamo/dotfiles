@@ -63,11 +63,17 @@ set foldnestmax=10
 set listchars+=eol:$,space:.
 
 " set colorscheme
-set t_Co=256
-let g:hybrid_custom_term_colors = 1
-" let g:hybrid_reduced_contrast = 1
-set bg=dark
-colorscheme hybrid
+" set t_Co=256
+" let g:hybrid_custom_term_colors = 1
+" " let g:hybrid_reduced_contrast = 1
+" set bg=dark
+" colorscheme hybrid
+
+" set base_16 colours
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " clear the vim gutter colour
 highlight clear SignColumn

@@ -13,6 +13,7 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 " themes
+Plug 'chriskempson/base16-vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'rakr/vim-one'
 Plug 'jnurmine/Zenburn'
@@ -155,11 +156,17 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " set the colorscheme
-set t_Co=256
-let g:hybrid_custom_term_colors = 1
+" set t_Co=256
+" let g:hybrid_custom_term_colors = 1
 " let g:hybrid_reduced_contrast = 1
-set bg=dark
-colorscheme hybrid
+" set bg=dark
+" colorscheme hybrid
+
+" Support base 16 term colours
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " clear the vim gutter colour
 highlight clear SignColumn

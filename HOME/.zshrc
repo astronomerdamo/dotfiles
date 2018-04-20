@@ -13,6 +13,10 @@ source $ZSH/oh-my-zsh.sh
 # Source FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Source base 16
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
 # Load Customs
 source $ZSH/custom/zsh_aliases
 source $ZSH/custom/zsh_functions
