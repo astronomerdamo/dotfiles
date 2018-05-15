@@ -106,16 +106,6 @@
 			   "~/Sync/Shopify/org/todos/orders.org"
                            "~/Sync/Shopify/org/todos/general.org")))
 
-(use-package doom-themes
-  :ensure t
-  :config
-  (doom-themes-org-config)
-  (load-theme 'doom-spacegrey t)
-  (scroll-bar-mode -1)
-  (tool-bar-mode -1)
-  (setq doom-themes-enable-bold t
-	doom-themes-enable-italic t))
-
 (use-package company
   :ensure t
   :diminish company-mode
@@ -139,6 +129,13 @@
   :ensure t
   :bind(("C->" . mc/mark-next-like-this)
 	("C-<" . mc/mark-previous-like-this)))
+
+(use-package base16-theme
+  :ensure t
+  :config
+  (load-theme 'base16-material t)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1))
 
 ;; Language specific modes
 
