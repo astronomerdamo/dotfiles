@@ -52,6 +52,7 @@
 (use-package counsel-projectile
   :ensure t
   :defer t
+  :config (counsel-projectile-mode t)
   :bind (("C-c p SPC" . counsel-projectile)
 	 ("C-c p p"   . counsel-projectile-switch-project)
 	 ("C-c p f"   . counsel-projectile-find-file)
