@@ -219,4 +219,7 @@
 (setq mouse-wheel-follow-mouse t)
 (setq scroll-step 1)
 
+;; Record window config history
+(winner-mode t)
+
 ;;; init.el ends here
