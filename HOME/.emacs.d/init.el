@@ -22,6 +22,7 @@
   (require 'use-package))
 (require 'bind-key)
 
+; Remove following package for linux
 (use-package exec-path-from-shell
   :ensure t
   :config

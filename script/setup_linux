@@ -1,0 +1,14 @@
+#!/bin/bash
+
+rsync -avuh LINUX_HOME/.bashrc ~/
+rsync -avuh LINUX_HOME/.bash_profile ~/
+
+rsync -avuh HOME/.vimrc ~/
+rsync -avuh HOME/.config ~/
+
+echo "WARNING >> Update .emacs.d/init.el for linux"
+rsync -avuh HOME/.emacs.d ~/
+echo "WARNING >> Update .gitconfig for linux"
+rsync -avuh HOME/.gitconfig ~/
+echo "WARNING >> Update .tmux.conf for linux"
+rsync -avuh HOME/.tmux.conf ~/
