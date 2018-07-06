@@ -1,5 +1,11 @@
 # General
-alias ls="ls --color=auto"
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+		alias ls="ls --color=auto"
+else
+		alias ls="ls -G"
+fi
+
 alias ll="ls -hlAG"
 alias rm="rm -i"
 alias cp="cp -i"
