@@ -3,17 +3,17 @@ function fish_prompt --description 'Write out the prompt'
 
     # User
     set_color $fish_color_user
-    echo -n (whoami)
+    echo -n [(whoami)
     set_color normal
 
     echo -n '@'
 
     # Host
     set_color $fish_color_host
-    echo -n (prompt_hostname)
+    echo -n (prompt_hostname)]
     set_color normal
 
-    echo -n ':'
+    echo -n ' '
 
     # PWD
     set_color blue
