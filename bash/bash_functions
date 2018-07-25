@@ -2,7 +2,7 @@
 
 # Auto colourize jq json parser
 function jql() {
-	jq -C '.' <$1 | less -R
+	jq -C '.' <"$1" | less -R
 }
 
 # Get active git branch
