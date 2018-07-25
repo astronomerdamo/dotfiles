@@ -14,3 +14,11 @@ function gabf() {
 function gbf() {
 	git branch | grep "$1"
 }
+
+# Perform md5 check with file and key, return non-0 if different
+function md5_file_verify() {
+    if test "$(md5 "$1" | cut -f 2 -d '=' | sed 's/ *//')" != "$2"; then
+        echo "md5 NOT VERIFIED"
+        return 1
+    fi
+}
