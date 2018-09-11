@@ -119,11 +119,6 @@
   :config
   (global-undo-tree-mode))
 
-(use-package magit
-  :ensure t
-  :pin melpa-stable
-  :bind ("C-x g" . magit-status))
-
 (use-package smartparens
   :ensure t)
 
